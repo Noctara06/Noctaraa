@@ -2,8 +2,8 @@
   const API_BASE_STORAGE_KEY = "midnight_api_base";
   const LEGACY_API_BASE_STORAGE_KEY = "audio_platform_api_base";
   const API_BASE_STORAGE_KEYS = [API_BASE_STORAGE_KEY, LEGACY_API_BASE_STORAGE_KEY];
-  const DEFAULT_LOCAL_API_BASE = "http://localhost:5000/api/v1";
-  const API_BASE = resolveApiBase();
+const DEFAULT_LOCAL_API_BASE = "https://noctaraa-1.onrender.com/api/v1";
+const API_BASE = resolveApiBase();
   const SESSION_KEY = "midnight_session";
   const LEGACY_SESSION_KEY = "audio_platform_session";
   const SESSION_STORAGE_KEYS = [SESSION_KEY, LEGACY_SESSION_KEY];
@@ -71,7 +71,7 @@
         return window.location.origin.replace(/\/+$/, "");
       }
 
-      return "http://localhost:5000";
+      return "https://noctaraa-1.onrender.com";
     }
   }
 
