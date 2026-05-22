@@ -56,8 +56,7 @@ const API_BASE = resolveApiBase();
       }
 
       if (window.location.origin && /^https?:/i.test(window.location.origin)) {
-        return `${window.location.origin.replace(/\/+$/, "")}/api/v1`;
-      }
+return "https://noctaraa-1.onrender.com/api/v1";      }
     }
 
     return DEFAULT_LOCAL_API_BASE;
