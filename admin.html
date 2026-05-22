@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Midnight Admin Dashboard</title>
+  <link rel="stylesheet" href="admin.css" />
+</head>
+<body data-page="admin">
+  <header class="admin-header">
+    <div class="admin-header-left">
+      <a class="admin-brand" href="admin.html">Midnight Admin</a>
+      <nav class="admin-nav" aria-label="Admin sections">
+        <a class="admin-nav-link" href="admin-users.html">User Management</a>
+        <a class="admin-nav-link" href="admin-deletion-requests.html">Deletion Requests</a>
+        <a class="admin-nav-link" href="admin-stories.html">Story Management</a>
+        <a class="admin-nav-link" href="admin-reports.html">Reports</a>
+      </nav>
+    </div>
+    <div class="admin-actions">
+      <span id="adminUserLine" class="admin-user"></span>
+      <button id="goHomeBtn" class="btn ghost" type="button">Home</button>
+      <button id="adminLogoutBtn" class="btn danger" type="button">Log Out</button>
+    </div>
+  </header>
+
+  <main class="admin-main">
+    <section class="stats-grid">
+      <article class="card">
+        <h2 id="statTotalUsers" class="stat-value">0</h2>
+        <p class="stat-label">Total Users</p>
+      </article>
+      <article class="card">
+        <h2 id="statTotalStories" class="stat-value">0</h2>
+        <p class="stat-label">Total Stories</p>
+      </article>
+      <article class="card">
+        <h2 id="statTotalReports" class="stat-value">0</h2>
+        <p class="stat-label">Open Reports</p>
+      </article>
+      <article class="card">
+        <h2 id="statTotalViews" class="stat-value">0</h2>
+        <p class="stat-label">Total Views</p>
+      </article>
+      <article class="card">
+        <h2 id="statActiveUsers" class="stat-value">0</h2>
+        <p class="stat-label">Active Users</p>
+      </article>
+    </section>
+
+    <section class="panel">
+      <div class="panel-head">
+        <h2>Admin Overview</h2>
+      </div>
+      <p class="report-sub">Use the top navigation to access user management, deletion approvals, story moderation, and reports on their dedicated pages.</p>
+    </section>
+  </main>
+
+  <script src="app-config.js"></script>
+  <script src="app-api.js"></script>
+  <script src="admin.js"></script>
+</body>
+</html>

@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Midnight Writer Analytics</title>
+  <link rel="stylesheet" href="writer.css" />
+</head>
+<body class="writer-shell" data-writer-page="analytics">
+  <header class="writer-header">
+    <a class="writer-brand" href="home.html">Midnight</a>
+    <nav class="writer-nav">
+      <a href="writer.html" data-writer-nav="dashboard">Dashboard</a>
+      <a href="writer-stories.html" data-writer-nav="stories">Stories</a>
+      <a href="analytics.html" data-writer-nav="analytics">Analytics</a>
+      <a href="writer-profile.html" data-writer-nav="profile">Profile</a>
+    </nav>
+    <div class="writer-actions">
+      <a class="reader-link" href="explore.html">Reader Mode</a>
+      <div class="menu-wrap">
+        <button id="writerMenuBtn" class="icon-btn" type="button" aria-label="Writer menu" aria-expanded="false">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 12c2.761 0 5-2.239 5-5s-2.239-5-5-5-5 2.239-5 5 2.239 5 5 5Z"></path>
+            <path d="M4.5 20.5c1.5-2.5 4.5-4 7.5-4s6 1.5 7.5 4"></path>
+          </svg>
+        </button>
+        <div id="writerMenu" class="profile-menu">
+          <span id="writerUserLine" class="menu-user"></span>
+          <a class="menu-item" href="writer-profile.html">Writer Profile</a>
+          <a class="menu-item" href="notifications.html">Notifications</a>
+          <button id="writerLogoutBtn" class="menu-item" type="button">Log Out</button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main class="writer-main">
+    <section class="section">
+      <div class="section-head">
+        <div>
+          <h1 class="section-title">Analytics</h1>
+          <p class="section-sub">Performance across reads, votes, comments, and growth.</p>
+        </div>
+      </div>
+      <div class="stats-grid">
+        <div class="card">
+          <div id="analyticsReads" class="stat-value">0</div>
+          <div class="stat-label">Reads</div>
+        </div>
+        <div class="card">
+          <div id="analyticsLikes" class="stat-value">0</div>
+          <div class="stat-label">Votes</div>
+        </div>
+        <div class="card">
+          <div id="analyticsComments" class="stat-value">0</div>
+          <div class="stat-label">Comments</div>
+        </div>
+        <div class="card">
+          <div id="analyticsAvgRead" class="stat-value">0</div>
+          <div class="stat-label">Avg Read Time</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section split">
+      <article class="card">
+        <h2 class="section-title" style="font-size:1.05rem;">Growth (Last 7 Days)</h2>
+        <div id="growthBars" class="bars"></div>
+      </article>
+      <article class="card">
+        <h2 class="section-title" style="font-size:1.05rem;">Top Performing Story</h2>
+        <p id="topStoryName" class="section-sub"></p>
+        <p id="topStoryStats" class="section-sub"></p>
+      </article>
+    </section>
+
+    <section class="section card">
+      <h2 class="section-title" style="font-size:1.05rem;">Insights</h2>
+      <div class="story-meta" style="margin-top:10px;">
+        <span id="insightBestTime"></span>
+        <span id="insightBestGenre"></span>
+        <span id="insightFollowerGrowth"></span>
+      </div>
+      <p id="analyticsFocus" class="status-text"></p>
+    </section>
+  </main>
+
+  <script src="app-config.js"></script>
+  <script src="app-api.js"></script>
+  <script src="writer.js"></script>
+</body>
+</html>

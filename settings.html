@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Midnight Settings</title>
+  <link rel="stylesheet" href="settings.css" />
+</head>
+<body class="settings-shell">
+  <header class="settings-header">
+    <a class="settings-brand" href="home.html">Midnight</a>
+    <nav class="settings-nav">
+      <a href="explore.html">Reader Home</a>
+      <a href="writer-profile.html">Edit Profile</a>
+      <a id="settingsPublicProfileLink" href="profile.html">Public Profile</a>
+    </nav>
+    <div class="settings-head-actions">
+      <span id="settingsUserChip" class="settings-user-chip">Loading...</span>
+      <button id="settingsLogoutBtn" class="ghost-btn" type="button">Log Out</button>
+    </div>
+  </header>
+
+  <main class="settings-main">
+    <aside class="settings-sidebar">
+      <p class="settings-kicker">Centralized Account Controls</p>
+      <h1>Settings</h1>
+      <p class="settings-copy">Profile details stay in Writer Profile. Account, privacy, and notifications live here now.</p>
+      <nav class="settings-section-nav" aria-label="Settings sections">
+        <a href="#accountSection">Account</a>
+        <a href="#privacySection">Privacy</a>
+        <a href="#notificationsSection">Notifications</a>
+        <a href="#dangerSection">Danger Zone</a>
+      </nav>
+      <div id="settingsPageStatus" class="settings-banner hidden" aria-live="polite"></div>
+    </aside>
+
+    <section class="settings-content">
+      <article id="accountSection" class="settings-card">
+        <div class="settings-card-head">
+          <div>
+            <p class="settings-label">Account Settings</p>
+            <h2>Email and password</h2>
+          </div>
+          <span class="settings-badge">Secure</span>
+        </div>
+
+        <form id="accountEmailForm" class="settings-form">
+          <label class="settings-field">
+            <span>Email address</span>
+            <input id="settingsEmailInput" class="settings-input" type="email" autocomplete="email" />
+          </label>
+          <div class="settings-actions">
+            <button id="saveEmailBtn" class="primary-btn" type="submit">Save Email</button>
+            <p id="accountEmailStatus" class="settings-inline-status" aria-live="polite"></p>
+          </div>
+        </form>
+
+        <div class="settings-divider"></div>
+
+        <form id="passwordForm" class="settings-form">
+          <label class="settings-field">
+            <span>Current password</span>
+            <input id="currentPasswordInput" class="settings-input" type="password" autocomplete="current-password" />
+          </label>
+          <label class="settings-field">
+            <span>New password</span>
+            <input id="newPasswordInput" class="settings-input" type="password" autocomplete="new-password" />
+          </label>
+          <label class="settings-field">
+            <span>Confirm new password</span>
+            <input id="confirmPasswordInput" class="settings-input" type="password" autocomplete="new-password" />
+          </label>
+          <div class="settings-actions">
+            <button id="changePasswordBtn" class="primary-btn" type="submit">Change Password</button>
+            <p id="passwordStatus" class="settings-inline-status" aria-live="polite"></p>
+          </div>
+        </form>
+      </article>
+
+      <article id="privacySection" class="settings-card">
+        <div class="settings-card-head">
+          <div>
+            <p class="settings-label">Privacy Settings</p>
+            <h2>Who can see and interact</h2>
+          </div>
+          <span id="privacySaveState" class="settings-save-pill">Saved</span>
+        </div>
+
+        <div class="settings-grid">
+          <label class="settings-field">
+            <span>Profile visibility</span>
+            <select id="profileVisibilitySelect" class="settings-select">
+              <option value="public">Public</option>
+              <option value="private">Private</option>
+            </select>
+          </label>
+
+          <label class="settings-field">
+            <span>Who can follow you</span>
+            <select id="followPermissionSelect" class="settings-select">
+              <option value="everyone">Everyone</option>
+              <option value="no_one">Nobody</option>
+            </select>
+          </label>
+
+          <label class="settings-field">
+            <span>Who can comment on stories</span>
+            <select id="storyCommentPermissionSelect" class="settings-select">
+              <option value="everyone">Everyone</option>
+              <option value="followers">Followers only</option>
+              <option value="no_one">Nobody</option>
+            </select>
+          </label>
+
+          <label class="settings-field">
+            <span>Who can view reading activity</span>
+            <select id="readingActivityVisibilitySelect" class="settings-select">
+              <option value="everyone">Everyone</option>
+              <option value="followers">Followers only</option>
+              <option value="only_me">Only me</option>
+            </select>
+          </label>
+        </div>
+      </article>
+
+      <article id="notificationsSection" class="settings-card">
+        <div class="settings-card-head">
+          <div>
+            <p class="settings-label">Notification Preferences</p>
+            <h2>Choose what reaches you</h2>
+          </div>
+          <span id="notificationSaveState" class="settings-save-pill">Saved</span>
+        </div>
+
+        <div class="settings-toggle-list">
+          <label class="settings-toggle-row">
+            <div>
+              <strong>Likes</strong>
+              <p>Get notified when readers appreciate your stories.</p>
+            </div>
+            <span class="settings-switch">
+              <input id="notifyLikesToggle" type="checkbox" />
+              <span></span>
+            </span>
+          </label>
+
+          <label class="settings-toggle-row">
+            <div>
+              <strong>Comments</strong>
+              <p>Receive alerts for story comments and profile replies.</p>
+            </div>
+            <span class="settings-switch">
+              <input id="notifyCommentsToggle" type="checkbox" />
+              <span></span>
+            </span>
+          </label>
+
+          <label class="settings-toggle-row">
+            <div>
+              <strong>Follows</strong>
+              <p>Know when someone starts following you.</p>
+            </div>
+            <span class="settings-switch">
+              <input id="notifyFollowsToggle" type="checkbox" />
+              <span></span>
+            </span>
+          </label>
+
+          <label class="settings-toggle-row">
+            <div>
+              <strong>Story updates</strong>
+              <p>Get new chapter and publishing alerts from stories you follow.</p>
+            </div>
+            <span class="settings-switch">
+              <input id="notifyStoryUpdatesToggle" type="checkbox" />
+              <span></span>
+            </span>
+          </label>
+        </div>
+      </article>
+
+      <article id="dangerSection" class="settings-card danger-card">
+        <div class="settings-card-head">
+          <div>
+            <p class="settings-label">Account Actions</p>
+            <h2>Danger zone</h2>
+          </div>
+          <span class="danger-badge">High impact</span>
+        </div>
+
+        <p class="settings-copy">Requesting account deletion sends your request to an admin for review. This action is serious and may remove your stories, collections, and history after approval.</p>
+        <div class="settings-actions">
+          <button id="openDeleteRequestBtn" class="danger-btn" type="button">Request Account Deletion</button>
+          <p id="deletionRequestStatus" class="settings-inline-status" aria-live="polite"></p>
+        </div>
+        <div id="deletionRequestMeta" class="settings-meta hidden"></div>
+      </article>
+    </section>
+  </main>
+
+  <div id="deleteRequestModal" class="settings-modal hidden" role="dialog" aria-modal="true" aria-labelledby="deleteRequestModalTitle">
+    <div class="settings-modal-dialog">
+      <div class="settings-card-head modal-head">
+        <div>
+          <p class="settings-label">Delete Account Request</p>
+          <h2 id="deleteRequestModalTitle">Confirm request</h2>
+        </div>
+        <button id="closeDeleteRequestModalBtn" class="icon-close-btn" type="button" aria-label="Close delete request dialog">x</button>
+      </div>
+
+      <div class="settings-warning-box">
+        <strong>This does not instantly delete your account.</strong>
+        <p>An admin will review your request first. Enter your password so we know it is really you.</p>
+      </div>
+
+      <label class="settings-field">
+        <span>Reason for deletion (optional)</span>
+        <textarea id="deleteRequestReasonInput" class="settings-textarea" maxlength="400" placeholder="Tell the admin why you want this account removed."></textarea>
+      </label>
+
+      <label class="settings-field">
+        <span>Password</span>
+        <input id="deleteRequestPasswordInput" class="settings-input" type="password" autocomplete="current-password" />
+      </label>
+
+      <div class="settings-actions">
+        <button id="submitDeleteRequestBtn" class="danger-btn" type="button">Send Request</button>
+        <button id="cancelDeleteRequestBtn" class="ghost-btn" type="button">Cancel</button>
+      </div>
+      <p id="deleteModalStatus" class="settings-inline-status" aria-live="polite"></p>
+    </div>
+  </div>
+
+  <script src="app-config.js"></script>
+  <script src="app-api.js"></script>
+  <script src="settings.js"></script>
+</body>
+</html>

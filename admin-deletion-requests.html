@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Midnight Admin Deletion Requests</title>
+  <link rel="stylesheet" href="admin.css" />
+</head>
+<body data-page="admin">
+  <header class="admin-header">
+    <div class="admin-header-left">
+      <a class="admin-brand" href="admin.html">Midnight Admin</a>
+      <nav class="admin-nav" aria-label="Admin sections">
+        <a class="admin-nav-link" href="admin-users.html">User Management</a>
+        <a class="admin-nav-link active" href="admin-deletion-requests.html">Deletion Requests</a>
+        <a class="admin-nav-link" href="admin-stories.html">Story Management</a>
+        <a class="admin-nav-link" href="admin-reports.html">Reports</a>
+      </nav>
+    </div>
+    <div class="admin-actions">
+      <span id="adminUserLine" class="admin-user"></span>
+      <button id="goHomeBtn" class="btn ghost" type="button">Home</button>
+      <button id="adminLogoutBtn" class="btn danger" type="button">Log Out</button>
+    </div>
+  </header>
+
+  <main class="admin-main">
+    <section id="deletionRequestsSection" class="panel">
+      <div class="panel-head">
+        <h2>Deletion Requests</h2>
+      </div>
+      <div id="deletionRequestsList" class="reports-list"></div>
+    </section>
+  </main>
+
+  <script src="app-config.js"></script>
+  <script src="app-api.js"></script>
+  <script src="admin.js"></script>
+</body>
+</html>

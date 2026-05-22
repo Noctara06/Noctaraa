@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Midnight Collection</title>
+  <link rel="stylesheet" href="reader.css" />
+</head>
+<body class="reader-shell" data-reader-page="collection">
+  <header class="reader-header">
+    <a class="brand-link" href="home.html">Midnight</a>
+
+    <form id="globalSearchForm" class="header-search">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+        <circle cx="11" cy="11" r="7"></circle>
+        <line x1="16.65" y1="16.65" x2="21" y2="21"></line>
+      </svg>
+      <input id="globalSearchInput" type="search" placeholder="Search title or author..." />
+    </form>
+
+    <nav class="header-links">
+      <a href="explore.html" data-nav="explore">Explore</a>
+      <a href="library.html" data-nav="library">Library</a>
+    </nav>
+
+    <div class="header-profile">
+      <button id="headerProfileBtn" class="icon-btn" type="button" aria-label="Profile menu" aria-expanded="false">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M12 12c2.761 0 5-2.239 5-5s-2.239-5-5-5-5 2.239-5 5 2.239 5 5 5Z"></path>
+          <path d="M4.5 20.5c1.5-2.5 4.5-4 7.5-4s6 1.5 7.5 4"></path>
+        </svg>
+      </button>
+      <div id="headerProfileMenu" class="profile-menu">
+        <span id="headerUserLine" class="menu-user"></span>
+        <a id="headerProfileLink" class="menu-item" href="#">Profile</a>
+        <button id="headerLogoutBtn" class="menu-item" type="button">Log Out</button>
+      </div>
+    </div>
+  </header>
+
+  <main class="reader-main">
+    <section class="section collection-shell">
+      <div class="collection-hero">
+        <div class="collection-hero-copy">
+          <span class="collection-kicker">Personal Collection</span>
+          <h1 class="section-title">Saved Boards</h1>
+          <p class="section-sub">Instagram saved jaisa apna private space. Folders banao, books group karo, aur jo chaaho public share karo.</p>
+        </div>
+        <div class="library-overview collection-overview">
+          <article class="hero-card library-metric">
+            <span class="metric-label">Custom Lists</span>
+            <strong id="collectionCount" class="metric-value">0</strong>
+            <p class="metric-copy">Apne folders banao like Romance, Dark, Self Growth, ya Weekend Reads.</p>
+          </article>
+          <article class="hero-card library-metric">
+            <span class="metric-label">Books Organized</span>
+            <strong id="collectionSavedCount" class="metric-value">0</strong>
+            <p class="metric-copy">Tumhare saved boards me kitni unique books organized hain.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section collection-dashboard">
+      <div class="section-head">
+        <div>
+          <h2 class="section-title">Your Boards</h2>
+          <p class="section-sub">Tap karke koi bhi board kholo, bilkul Instagram saved collections ki tarah.</p>
+        </div>
+      </div>
+
+      <form id="collectionCreateForm" class="collection-form collection-form-instagram">
+        <input id="collectionNameInput" type="text" placeholder="New board name, for example Romance, Study, or Plot Twists" />
+        <button class="btn primary" type="submit">Create Board</button>
+      </form>
+
+      <div id="collectionTabs" class="collection-board-grid"></div>
+    </section>
+
+    <section id="collectionFocusSection" class="section collection-focus-section hidden">
+      <article class="hero-card collection-focus-card">
+        <div class="collection-focus-head">
+          <div>
+            <p class="collection-focus-kicker">Open Collection</p>
+            <h2 id="collectionActiveTitle" class="section-title">Select a board</h2>
+            <p id="collectionInfo" class="section-sub">Select a collection to view its books.</p>
+          </div>
+          <div class="collection-actions">
+            <span id="collectionVisibilityBadge" class="visibility-badge hidden">Private Board</span>
+            <button id="collectionVisibilityBtn" class="btn hidden" type="button">Make Public</button>
+            <button id="deleteCollectionBtn" class="btn hidden" type="button">Delete Board</button>
+          </div>
+        </div>
+        <div id="collectionStories" class="story-grid collection-story-grid"></div>
+      </article>
+    </section>
+
+    <section id="collectionSourceWrap" class="section collection-source-section hidden">
+      <article class="hero-card collection-source-card">
+        <div class="section-head">
+          <div>
+            <h2 id="collectionSourceTitle" class="section-title">Add Books</h2>
+            <p class="section-sub">Save books from your reading journey into the selected board.</p>
+          </div>
+        </div>
+        <div id="collectionSourceStories" class="story-grid collection-story-grid"></div>
+      </article>
+    </section>
+  </main>
+
+  <script src="reader-data.js"></script>
+  <script src="app-config.js"></script>
+  <script src="app-api.js"></script>
+  <script src="reader.js"></script>
+</body>
+</html>

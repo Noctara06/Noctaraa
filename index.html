@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Midnight Sign Up / Login</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body data-page="auth">
+  <section id="authApp">
+    <h1>Welcome to Midnight</h1>
+    <p class="sub">Sign in or create an account to continue.</p>
+
+    <div class="switch">
+      <button id="showSignup" class="active" type="button">Sign Up</button>
+      <button id="showLogin" type="button">Log In</button>
+    </div>
+
+    <form id="signupForm" class="active">
+      <label>
+        Email
+        <input id="signupEmail" type="email" required />
+      </label>
+      <label>
+        Password
+        <input id="signupPassword" type="password" minlength="8" required />
+      </label>
+      <button class="submit" type="submit">Create Account</button>
+      <p id="signupMsg" class="msg"></p>
+    </form>
+
+    <form id="loginForm">
+      <label>
+        Email
+        <input id="loginEmail" type="email" required />
+      </label>
+      <label>
+        Password
+        <input id="loginPassword" type="password" required />
+      </label>
+      <button class="submit" type="submit">Log In</button>
+      <p id="loginMsg" class="msg"></p>
+    </form>
+  </section>
+
+  <script src="app-config.js"></script>
+  <script src="app-api.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

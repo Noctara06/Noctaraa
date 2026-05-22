@@ -1,0 +1,591 @@
+
+> audio-platform-backend@1.0.0 dev
+> nodemon src/server.js
+
+[33m[nodemon] 3.1.14[39m
+[33m[nodemon] to restart at any time, enter `rs`[39m
+[33m[nodemon] watching path(s): *.*[39m
+[33m[nodemon] watching extensions: js,mjs,cjs,json[39m
+[32m[nodemon] starting `node src/server.js`[39m
+[server] Audio Platform backend running on http://localhost:5000/api/v1
+[0mGET /api/v1/reader/authors/test/followers [33m401[0m 3.286 ms - 77[0m
+[0mGET /api/v1/users/cmn16fruj000ajse19k06u8ca [33m401[0m 7.158 ms - 77[0m
+[0mPOST /api/v1/auth/refresh [32m200[0m 367.903 ms - 2079[0m
+[0mGET /api/v1/users/cmn16fruj000ajse19k06u8ca [32m200[0m 16.189 ms - 908[0m
+[0mGET /api/v1/stories [32m200[0m 88.906 ms - 298273[0m
+[0mGET /api/v1/reader/state [32m200[0m 165.974 ms - 1672[0m
+[0mGET /api/v1/users/cmn16fruj000ajse19k06u8ca [32m200[0m 22.827 ms - 908[0m
+[0mGET /api/v1/notifications [32m200[0m 31.836 ms - 10917[0m
+[0mGET /api/v1/reader/collections/public/cmn16fruj000ajse19k06u8ca [32m200[0m 20.459 ms - 516[0m
+[0mGET /api/v1/reader/authors/cmn16fruj000ajse19k06u8ca/followers [32m200[0m 11.808 ms - 432[0m
+[0mGET /api/v1/reader/authors/cmn16fruj000ajse19k06u8ca/questions [32m200[0m 11.389 ms - 439[0m
+[0mGET /uploads/profiles/cmn16fruj000ajse19k06u8ca/cover-1777129525505-cf51d748-47fb-4ecf-ac7b-281e9b490f0d.jpg [33m404[0m 2.224 ms - 155[0m
+[0mGET /uploads/profiles/cmn16fruj000ajse19k06u8ca/avatar-1777129525480-c55e4248-f3c9-4501-be18-73ee0727904f.jpg [33m404[0m 2.391 ms - 156[0m
+[0mGET /api/v1/reader/authors/test/followers [33m401[0m 0.635 ms - 77[0m
+[0mGET /api/v1/users/cmn16fruj000ajse19k06u8ca [32m200[0m 73.906 ms - 908[0m
+[0mGET /api/v1/stories [32m200[0m 65.921 ms - 298273[0m
+[0mGET /api/v1/reader/state [32m200[0m 223.840 ms - 1672[0m
+[0mGET /api/v1/users/cmn16fruj000ajse19k06u8ca [32m200[0m 21.096 ms - 908[0m
+[0mGET /api/v1/notifications [32m200[0m 29.685 ms - 10917[0m
+[0mGET /api/v1/reader/collections/public/cmn16fruj000ajse19k06u8ca [32m200[0m 19.156 ms - 516[0m
+[0mGET /api/v1/reader/authors/cmn16fruj000ajse19k06u8ca/followers [32m200[0m 8.983 ms - 432[0m
+[0mGET /api/v1/reader/authors/cmn16fruj000ajse19k06u8ca/questions [32m200[0m 7.843 ms - 439[0m
+[0mGET /uploads/profiles/cmn16fruj000ajse19k06u8ca/cover-1777129525505-cf51d748-47fb-4ecf-ac7b-281e9b490f0d.jpg [33m404[0m 1.509 ms - 155[0m
+[0mGET /uploads/profiles/cmn16fruj000ajse19k06u8ca/avatar-1777129525480-c55e4248-f3c9-4501-be18-73ee0727904f.jpg [33m404[0m 1.943 ms - 156[0m
+[0mGET /api/v1/users/cmn16fruj000ajse19k06u8ca [32m200[0m 8.114 ms - 908[0m
+[0mGET /api/v1/stories [32m200[0m 15.832 ms - 298273[0m
+[0mGET /api/v1/reader/state [32m200[0m 29.484 ms - 1672[0m
+[0mGET /api/v1/users/cmn16fruj000ajse19k06u8ca [32m200[0m 9.158 ms - 908[0m
+[0mGET /api/v1/notifications [32m200[0m 23.848 ms - 10917[0m
+[0mGET /api/v1/reader/collections/public/cmn16fruj000ajse19k06u8ca [32m200[0m 18.456 ms - 516[0m
+[0mGET /api/v1/reader/authors/cmn16fruj000ajse19k06u8ca/followers [32m200[0m 10.921 ms - 432[0m
+[0mGET /api/v1/reader/authors/cmn16fruj000ajse19k06u8ca/questions [32m200[0m 11.583 ms - 439[0m
+[0mGET /uploads/profiles/cmn16fruj000ajse19k06u8ca/cover-1777129525505-cf51d748-47fb-4ecf-ac7b-281e9b490f0d.jpg [33m404[0m 1.799 ms - 155[0m
+[0mGET /uploads/profiles/cmn16fruj000ajse19k06u8ca/avatar-1777129525480-c55e4248-f3c9-4501-be18-73ee0727904f.jpg [33m404[0m 2.176 ms - 156[0m
+[0mGET /api/v1/users/cmn16fruj000ajse19k06u8ca [32m200[0m 8.074 ms - 908[0m
+[0mGET /api/v1/stories [32m200[0m 24.690 ms - 298273[0m
+[0mGET /api/v1/reader/state [32m200[0m 174.607 ms - 1672[0m
+[0mGET /api/v1/users/cmn16fruj000ajse19k06u8ca [32m200[0m 16.304 ms - 908[0m
+[0mGET /api/v1/notifications [32m200[0m 25.284 ms - 10917[0m
+[0mGET /api/v1/reader/collections/public/cmn16fruj000ajse19k06u8ca [32m200[0m 13.145 ms - 516[0m
+[0mGET /api/v1/reader/authors/cmn16fruj000ajse19k06u8ca/followers [32m200[0m 7.170 ms - 432[0m
+[0mGET /api/v1/reader/authors/cmn16fruj000ajse19k06u8ca/questions [32m200[0m 7.067 ms - 439[0m
+[0mGET /uploads/profiles/cmn16fruj000ajse19k06u8ca/cover-1777129525505-cf51d748-47fb-4ecf-ac7b-281e9b490f0d.jpg [33m404[0m 1.759 ms - 155[0m
+[0mGET /uploads/profiles/cmn16fruj000ajse19k06u8ca/avatar-1777129525480-c55e4248-f3c9-4501-be18-73ee0727904f.jpg [33m404[0m 1.983 ms - 156[0m
+[0mGET /api/v1/users/cmn16fruj000ajse19k06u8ca [32m200[0m 7.492 ms - 908[0m
+[0mGET /api/v1/stories [32m200[0m 21.958 ms - 298273[0m
+[0mGET /api/v1/reader/state [32m200[0m 26.683 ms - 1672[0m
+[0mGET /api/v1/users/cmn16fruj000ajse19k06u8ca [32m200[0m 8.168 ms - 908[0m
+[0mGET /api/v1/notifications [32m200[0m 14.604 ms - 10917[0m
+[0mGET /api/v1/reader/collections/public/cmn16fruj000ajse19k06u8ca [32m200[0m 24.650 ms - 516[0m
+[0mGET /api/v1/reader/authors/cmn16fruj000ajse19k06u8ca/followers [32m200[0m 9.458 ms - 432[0m
+[0mGET /api/v1/reader/authors/cmn16fruj000ajse19k06u8ca/questions [32m200[0m 12.666 ms - 439[0m
+[0mGET /uploads/profiles/cmn16fruj000ajse19k06u8ca/cover-1777129525505-cf51d748-47fb-4ecf-ac7b-281e9b490f0d.jpg [33m404[0m 1.489 ms - 155[0m
+[0mGET /uploads/profiles/cmn16fruj000ajse19k06u8ca/avatar-1777129525480-c55e4248-f3c9-4501-be18-73ee0727904f.jpg [33m404[0m 1.336 ms - 156[0m
+[0mGET /api/v1/users/cmn16fruj000ajse19k06u8ca [32m200[0m 5.122 ms - 908[0m
+[0mGET /api/v1/stories [32m200[0m 18.212 ms - 298273[0m
+[0mGET /api/v1/reader/state [32m200[0m 22.492 ms - 1672[0m
+[0mGET /api/v1/users/cmn16fruj000ajse19k06u8ca [32m200[0m 9.082 ms - 908[0m
+[0mGET /api/v1/notifications [32m200[0m 19.251 ms - 10917[0m
+[0mGET /api/v1/reader/collections/public/cmn16fruj000ajse19k06u8ca [32m200[0m 7.111 ms - 516[0m
+[0mGET /api/v1/reader/authors/cmn16fruj000ajse19k06u8ca/followers [32m200[0m 6.347 ms - 432[0m
+[0mGET /api/v1/reader/authors/cmn16fruj000ajse19k06u8ca/questions [32m200[0m 8.617 ms - 439[0m
+[0mGET /uploads/profiles/cmn16fruj000ajse19k06u8ca/cover-1777129525505-cf51d748-47fb-4ecf-ac7b-281e9b490f0d.jpg [33m404[0m 1.435 ms - 155[0m
+[0mGET /uploads/profiles/cmn16fruj000ajse19k06u8ca/avatar-1777129525480-c55e4248-f3c9-4501-be18-73ee0727904f.jpg [33m404[0m 1.770 ms - 156[0m
+[0mGET /api/v1/users/cmn16fruj000ajse19k06u8ca [32m200[0m 60.699 ms - 908[0m
+[0mGET /api/v1/stories [32m200[0m 70.497 ms - 298273[0m
+[0mGET /api/v1/reader/state [32m200[0m 139.430 ms - 1672[0m
+[0mGET /api/v1/users/cmn16fruj000ajse19k06u8ca [32m200[0m 21.255 ms - 908[0m
+[0mGET /api/v1/notifications [32m200[0m 34.169 ms - 10917[0m
+[0mGET /api/v1/reader/collections/public/cmn16fruj000ajse19k06u8ca [32m200[0m 17.739 ms - 516[0m
+[0mGET /api/v1/reader/authors/cmn16fruj000ajse19k06u8ca/followers [32m200[0m 8.654 ms - 432[0m
+[0mGET /api/v1/reader/authors/cmn16fruj000ajse19k06u8ca/questions [32m200[0m 7.962 ms - 439[0m
+[0mGET /uploads/profiles/cmn16fruj000ajse19k06u8ca/cover-1777129525505-cf51d748-47fb-4ecf-ac7b-281e9b490f0d.jpg [33m404[0m 0.814 ms - 155[0m
+[0mGET /uploads/profiles/cmn16fruj000ajse19k06u8ca/avatar-1777129525480-c55e4248-f3c9-4501-be18-73ee0727904f.jpg [33m404[0m 0.596 ms - 156[0m
+[0mGET /api/v1/users/cmn16fruj000ajse19k06u8ca [32m200[0m 8.477 ms - 908[0m
+[0mGET /api/v1/stories [32m200[0m 19.098 ms - 298273[0m
+[0mGET /api/v1/reader/state [32m200[0m 31.730 ms - 1672[0m
+[0mGET /api/v1/users/cmn16fruj000ajse19k06u8ca [32m200[0m 11.752 ms - 908[0m
+[0mGET /api/v1/notifications [32m200[0m 29.527 ms - 10917[0m
+[0mGET /api/v1/reader/collections/public/cmn16fruj000ajse19k06u8ca [32m200[0m 18.385 ms - 516[0m
+[0mGET /api/v1/reader/authors/cmn16fruj000ajse19k06u8ca/followers [32m200[0m 6.086 ms - 432[0m
+[0mGET /api/v1/reader/authors/cmn16fruj000ajse19k06u8ca/questions [32m200[0m 12.129 ms - 439[0m
+[0mGET /uploads/profiles/cmn16fruj000ajse19k06u8ca/cover-1777129525505-cf51d748-47fb-4ecf-ac7b-281e9b490f0d.jpg [33m404[0m 0.833 ms - 155[0m
+[0mGET /uploads/profiles/cmn16fruj000ajse19k06u8ca/avatar-1777129525480-c55e4248-f3c9-4501-be18-73ee0727904f.jpg [33m404[0m 1.108 ms - 156[0m
+[0mGET /api/v1/users/cmn16fruj000ajse19k06u8ca [32m200[0m 5.374 ms - 908[0m
+[0mGET /api/v1/stories [32m200[0m 14.885 ms - 298273[0m
+[0mGET /api/v1/reader/state [32m200[0m 25.312 ms - 1672[0m
+[0mGET /api/v1/users/cmn16fruj000ajse19k06u8ca [32m200[0m 10.898 ms - 908[0m
+[0mGET /api/v1/notifications [32m200[0m 18.456 ms - 10917[0m
+[0mGET /api/v1/reader/collections/public/cmn16fruj000ajse19k06u8ca [32m200[0m 13.279 ms - 516[0m
+[0mGET /api/v1/reader/authors/cmn16fruj000ajse19k06u8ca/followers [32m200[0m 6.503 ms - 432[0m
+[0mGET /api/v1/reader/authors/cmn16fruj000ajse19k06u8ca/questions [32m200[0m 7.429 ms - 439[0m
+[0mGET /uploads/profiles/cmn16fruj000ajse19k06u8ca/cover-1777129525505-cf51d748-47fb-4ecf-ac7b-281e9b490f0d.jpg [33m404[0m 0.527 ms - 155[0m
+[0mGET /uploads/profiles/cmn16fruj000ajse19k06u8ca/avatar-1777129525480-c55e4248-f3c9-4501-be18-73ee0727904f.jpg [33m404[0m 1.113 ms - 156[0m
+[0mGET /api/v1/users/cmn16fruj000ajse19k06u8ca [32m200[0m 63.582 ms - 908[0m
+[0mGET /api/v1/stories [32m200[0m 173.240 ms - 298273[0m
+[0mGET /api/v1/reader/state [32m200[0m 218.401 ms - 1672[0m
+[0mGET /api/v1/users/cmn16fruj000ajse19k06u8ca [32m200[0m 8.987 ms - 908[0m
+[0mGET /api/v1/notifications [32m200[0m 27.276 ms - 10917[0m
+[0mGET /api/v1/reader/collections/public/cmn16fruj000ajse19k06u8ca [32m200[0m 22.997 ms - 516[0m
+[0mGET /api/v1/reader/authors/cmn16fruj000ajse19k06u8ca/followers [32m200[0m 5.527 ms - 432[0m
+[0mGET /api/v1/reader/authors/cmn16fruj000ajse19k06u8ca/questions [32m200[0m 6.946 ms - 439[0m
+[0mGET /uploads/profiles/cmn16fruj000ajse19k06u8ca/cover-1777129525505-cf51d748-47fb-4ecf-ac7b-281e9b490f0d.jpg [33m404[0m 1.974 ms - 155[0m
+[0mGET /uploads/profiles/cmn16fruj000ajse19k06u8ca/avatar-1777129525480-c55e4248-f3c9-4501-be18-73ee0727904f.jpg [33m404[0m 2.689 ms - 156[0m
+[0mGET /api/v1/users/cmn16fruj000ajse19k06u8ca [32m200[0m 6.221 ms - 908[0m
+[0mGET /api/v1/stories [32m200[0m 20.773 ms - 298273[0m
+[0mGET /api/v1/reader/state [32m200[0m 29.563 ms - 1672[0m
+[0mGET /api/v1/users/cmn16fruj000ajse19k06u8ca [32m200[0m 15.090 ms - 908[0m
+[0mGET /api/v1/notifications [32m200[0m 25.665 ms - 10917[0m
+[0mGET /api/v1/reader/collections/public/cmn16fruj000ajse19k06u8ca [32m200[0m 20.697 ms - 516[0m
+[0mGET /api/v1/reader/authors/cmn16fruj000ajse19k06u8ca/followers [32m200[0m 9.586 ms - 432[0m
+[0mGET /api/v1/reader/authors/cmn16fruj000ajse19k06u8ca/questions [32m200[0m 9.460 ms - 439[0m
+[0mGET /uploads/profiles/cmn16fruj000ajse19k06u8ca/cover-1777129525505-cf51d748-47fb-4ecf-ac7b-281e9b490f0d.jpg [33m404[0m 0.652 ms - 155[0m
+[0mGET /uploads/profiles/cmn16fruj000ajse19k06u8ca/avatar-1777129525480-c55e4248-f3c9-4501-be18-73ee0727904f.jpg [33m404[0m 0.729 ms - 156[0m
+[0mGET /api/v1/users/cmn16fruj000ajse19k06u8ca [32m200[0m 6.475 ms - 908[0m
+[0mGET /api/v1/stories [32m200[0m 24.593 ms - 298273[0m
+[0mGET /api/v1/reader/state [32m200[0m 72.958 ms - 1672[0m
+[0mGET /api/v1/users/cmn16fruj000ajse19k06u8ca [32m200[0m 7.378 ms - 908[0m
+[0mGET /api/v1/notifications [32m200[0m 24.639 ms - 10917[0m
+[0mGET /api/v1/reader/collections/public/cmn16fruj000ajse19k06u8ca [32m200[0m 16.427 ms - 516[0m
+[0mGET /api/v1/reader/authors/cmn16fruj000ajse19k06u8ca/followers [32m200[0m 6.564 ms - 432[0m
+[0mGET /api/v1/reader/authors/cmn16fruj000ajse19k06u8ca/questions [32m200[0m 8.360 ms - 439[0m
+[0mGET /uploads/profiles/cmn16fruj000ajse19k06u8ca/cover-1777129525505-cf51d748-47fb-4ecf-ac7b-281e9b490f0d.jpg [33m404[0m 1.036 ms - 155[0m
+[0mGET /uploads/profiles/cmn16fruj000ajse19k06u8ca/avatar-1777129525480-c55e4248-f3c9-4501-be18-73ee0727904f.jpg [33m404[0m 1.590 ms - 156[0m
+[0mGET /api/v1/users/cmn16fruj000ajse19k06u8ca [32m200[0m 5.534 ms - 908[0m
+[0mGET /api/v1/stories [32m200[0m 19.898 ms - 298273[0m
+[0mGET /api/v1/reader/state [32m200[0m 25.287 ms - 1672[0m
+[0mGET /api/v1/users/cmn16fruj000ajse19k06u8ca [32m200[0m 8.001 ms - 908[0m
+[0mGET /api/v1/notifications [32m200[0m 25.723 ms - 10917[0m
+[0mGET /api/v1/reader/collections/public/cmn16fruj000ajse19k06u8ca [32m200[0m 9.681 ms - 516[0m
+[0mGET /api/v1/reader/authors/cmn16fruj000ajse19k06u8ca/followers [32m200[0m 9.647 ms - 432[0m
+[0mGET /api/v1/reader/authors/cmn16fruj000ajse19k06u8ca/questions [32m200[0m 6.247 ms - 439[0m
+[0mGET /uploads/profiles/cmn16fruj000ajse19k06u8ca/cover-1777129525505-cf51d748-47fb-4ecf-ac7b-281e9b490f0d.jpg [33m404[0m 0.687 ms - 155[0m
+[0mGET /uploads/profiles/cmn16fruj000ajse19k06u8ca/avatar-1777129525480-c55e4248-f3c9-4501-be18-73ee0727904f.jpg [33m404[0m 0.847 ms - 156[0m
+[0mGET /api/v1/users/cmn16fruj000ajse19k06u8ca [32m200[0m 6.489 ms - 908[0m
+[0mGET /api/v1/users/cmn16fruj000ajse19k06u8ca [32m200[0m 164.245 ms - 908[0m
+[0mGET /api/v1/users/cmn16fruj000ajse19k06u8ca [32m200[0m 7.540 ms - 908[0m
+[0mGET /api/v1/users/cmn16fruj000ajse19k06u8ca [32m200[0m 8.350 ms - 908[0m
+[0mGET /api/v1/stories [32m200[0m 87.159 ms - 298273[0m
+[0mGET /api/v1/reader/state [32m200[0m 163.021 ms - 1672[0m
+[0mGET /api/v1/notifications [32m200[0m 28.401 ms - 10917[0m
+[0mGET /api/v1/users/cmn16fruj000ajse19k06u8ca [32m200[0m 23.574 ms - 908[0m
+[0mGET /api/v1/stories [32m200[0m 24.913 ms - 298273[0m
+[0mGET /api/v1/reader/state [32m200[0m 69.096 ms - 1672[0m
+[0mGET /api/v1/notifications [32m200[0m 21.948 ms - 10917[0m
+[0mGET /api/v1/users/cmn16fruj000ajse19k06u8ca [32m200[0m 70.070 ms - 908[0m
+[0mGET /api/v1/stories [32m200[0m 74.654 ms - 298273[0m
+[0mGET /api/v1/reader/state [32m200[0m 148.968 ms - 1672[0m
+[0mGET /api/v1/users/cmn16fruj000ajse19k06u8ca [32m200[0m 19.518 ms - 908[0m
+[0mGET /api/v1/notifications [32m200[0m 29.372 ms - 10917[0m
+[0mGET /api/v1/reader/collections/public/cmn16fruj000ajse19k06u8ca [32m200[0m 25.629 ms - 516[0m
+[0mGET /api/v1/reader/authors/cmn16fruj000ajse19k06u8ca/followers [32m200[0m 8.889 ms - 432[0m
+[0mGET /api/v1/reader/authors/cmn16fruj000ajse19k06u8ca/questions [32m200[0m 8.455 ms - 439[0m
+[0mGET /uploads/profiles/cmn16fruj000ajse19k06u8ca/cover-1777129525505-cf51d748-47fb-4ecf-ac7b-281e9b490f0d.jpg [33m404[0m 1.502 ms - 155[0m
+[0mGET /uploads/profiles/cmn16fruj000ajse19k06u8ca/avatar-1777129525480-c55e4248-f3c9-4501-be18-73ee0727904f.jpg [33m404[0m 2.430 ms - 156[0m
+[0mGET /api/v1/users/cmn16fruj000ajse19k06u8ca [32m200[0m 7.150 ms - 908[0m
+[0mGET /api/v1/stories [32m200[0m 19.336 ms - 298273[0m
+[0mGET /api/v1/reader/state [32m200[0m 22.821 ms - 1672[0m
+[0mGET /api/v1/users/cmn16fruj000ajse19k06u8ca [32m200[0m 8.556 ms - 908[0m
+[0mGET /api/v1/notifications [32m200[0m 22.358 ms - 10917[0m
+[0mGET /api/v1/reader/collections/public/cmn16fruj000ajse19k06u8ca [32m200[0m 9.570 ms - 516[0m
+[0mGET /api/v1/reader/authors/cmn16fruj000ajse19k06u8ca/followers [32m200[0m 4.364 ms - 432[0m
+[0mGET /api/v1/reader/authors/cmn16fruj000ajse19k06u8ca/questions [32m200[0m 7.363 ms - 439[0m
+[0mGET /uploads/profiles/cmn16fruj000ajse19k06u8ca/cover-1777129525505-cf51d748-47fb-4ecf-ac7b-281e9b490f0d.jpg [33m404[0m 0.907 ms - 155[0m
+[0mGET /uploads/profiles/cmn16fruj000ajse19k06u8ca/avatar-1777129525480-c55e4248-f3c9-4501-be18-73ee0727904f.jpg [33m404[0m 0.749 ms - 156[0m
+[0mGET /api/v1/users/cmn16fruj000ajse19k06u8ca [32m200[0m 7.234 ms - 908[0m
+[0mGET /api/v1/stories [32m200[0m 7.919 ms - 298273[0m
+[0mGET /api/v1/reader/state [32m200[0m 25.139 ms - 1672[0m
+[0mGET /api/v1/users/cmn16fruj000ajse19k06u8ca [32m200[0m 7.518 ms - 908[0m
+[0mGET /api/v1/notifications [32m200[0m 22.716 ms - 10917[0m
+[0mGET /api/v1/reader/collections/public/cmn16fruj000ajse19k06u8ca [32m200[0m 16.411 ms - 516[0m
+[0mGET /api/v1/reader/authors/cmn16fruj000ajse19k06u8ca/followers [32m200[0m 4.503 ms - 432[0m
+[0mGET /api/v1/reader/authors/cmn16fruj000ajse19k06u8ca/questions [32m200[0m 7.317 ms - 439[0m
+[0mGET /uploads/profiles/cmn16fruj000ajse19k06u8ca/cover-1777129525505-cf51d748-47fb-4ecf-ac7b-281e9b490f0d.jpg [33m404[0m 0.413 ms - 155[0m
+[0mGET /uploads/profiles/cmn16fruj000ajse19k06u8ca/avatar-1777129525480-c55e4248-f3c9-4501-be18-73ee0727904f.jpg [33m404[0m 1.363 ms - 156[0m
+[32m[nodemon] restarting due to changes...[39m
+[32m[nodemon] restarting due to changes...[39m
+[32m[nodemon] restarting due to changes...[39m
+[32m[nodemon] restarting due to changes...[39m
+[32m[nodemon] starting `node src/server.js`[39m
+[server] Midnight backend running on http://localhost:5000/api/v1
+[0mGET /api/v1/users/cmn16fruj000ajse19k06u8ca [32m200[0m 284.433 ms - 908[0m
+[0mGET /api/v1/reader/state [0m-[0m - ms - -[0m
+[0mGET /api/v1/stories [0m-[0m - ms - -[0m
+[0mGET /api/v1/users/cmn16fruj000ajse19k06u8ca [32m200[0m 30.927 ms - 908[0m
+[0mGET /api/v1/reader/state [32m200[0m 70.760 ms - 1672[0m
+[0mGET /api/v1/stories [0m-[0m - ms - -[0m
+[0mGET /api/v1/users/cmn16fruj000ajse19k06u8ca [32m200[0m 18.352 ms - 908[0m
+[0mGET /api/v1/stories [32m200[0m 28.359 ms - 298273[0m
+[0mGET /api/v1/reader/state [32m200[0m 33.304 ms - 1672[0m
+[0mGET /api/v1/users/cmn16fruj000ajse19k06u8ca [32m200[0m 13.251 ms - 908[0m
+[0mGET /api/v1/notifications [32m200[0m 29.892 ms - 10917[0m
+[0mGET /api/v1/reader/collections/public/cmn16fruj000ajse19k06u8ca [32m200[0m 21.595 ms - 516[0m
+[0mGET /api/v1/users/cmn16fruj000ajse19k06u8ca [32m200[0m 11.795 ms - 908[0m
+[0mGET /api/v1/stories [32m200[0m 21.525 ms - 298273[0m
+[0mGET /api/v1/reader/state [32m200[0m 30.494 ms - 1672[0m
+[0mGET /api/v1/users/cmn16fruj000ajse19k06u8ca [32m200[0m 10.168 ms - 908[0m
+[0mGET /api/v1/notifications [32m200[0m 29.079 ms - 10917[0m
+[0mGET /api/v1/reader/collections/public/cmn16fruj000ajse19k06u8ca [32m200[0m 10.413 ms - 516[0m
+[0mGET /api/v1/reader/authors/cmn16fruj000ajse19k06u8ca/followers [32m200[0m 8.647 ms - 432[0m
+[0mGET /api/v1/reader/authors/cmn16fruj000ajse19k06u8ca/questions [32m200[0m 11.634 ms - 439[0m
+[0mGET /uploads/profiles/cmn16fruj000ajse19k06u8ca/avatar-1777129525480-c55e4248-f3c9-4501-be18-73ee0727904f.jpg [33m404[0m 3.699 ms - 156[0m
+[0mGET /uploads/profiles/cmn16fruj000ajse19k06u8ca/cover-1777129525505-cf51d748-47fb-4ecf-ac7b-281e9b490f0d.jpg [33m404[0m 4.158 ms - 155[0m
+[0mGET /api/v1/users/cmn16fruj000ajse19k06u8ca [32m200[0m 7.436 ms - 908[0m
+[0mGET /api/v1/users/cmn16fruj000ajse19k06u8ca [32m200[0m 5.553 ms - 908[0m
+[0mGET /api/v1/users/cmn16fruj000ajse19k06u8ca [32m200[0m 6.822 ms - 908[0m
+[0mGET /api/v1/stories [32m200[0m 9.450 ms - 298273[0m
+[0mGET /api/v1/reader/state [32m200[0m 23.220 ms - 1672[0m
+[0mGET /api/v1/notifications [32m200[0m 12.987 ms - 10917[0m
+[0mGET /api/v1/users/cmn16fruj000ajse19k06u8ca [32m200[0m 9.968 ms - 908[0m
+[0mGET /api/v1/stories [32m200[0m 26.205 ms - 298273[0m
+[0mGET /api/v1/reader/state [32m200[0m 31.072 ms - 1672[0m
+[0mGET /api/v1/notifications [32m200[0m 13.650 ms - 10917[0m
+[0mPUT /api/v1/reader/progress/cmnhm1br300bq2ge1yn6g407b [32m200[0m 53.884 ms - 334[0m
+[0mGET /api/v1/reader/state [32m200[0m 20.894 ms - 1672[0m
+[0mGET /api/v1/reader/state [32m200[0m 21.447 ms - 1672[0m
+[0mGET /api/v1/users/cmn16fruj000ajse19k06u8ca [32m200[0m 12.158 ms - 908[0m
+[0mGET /api/v1/stories [32m200[0m 23.402 ms - 298273[0m
+[0mGET /api/v1/reader/state [32m200[0m 29.485 ms - 1672[0m
+[0mGET /api/v1/users/cmn16fruj000ajse19k06u8ca [32m200[0m 9.226 ms - 908[0m
+[0mGET /api/v1/notifications [32m200[0m 19.840 ms - 10917[0m
+[0mGET /api/v1/reader/collections/public/cmn16fruj000ajse19k06u8ca [32m200[0m 18.386 ms - 516[0m
+[0mGET /api/v1/reader/authors/cmn16fruj000ajse19k06u8ca/followers [32m200[0m 8.312 ms - 432[0m
+[0mGET /api/v1/reader/authors/cmn16fruj000ajse19k06u8ca/questions [32m200[0m 8.706 ms - 439[0m
+[0mGET /uploads/profiles/cmn16fruj000ajse19k06u8ca/cover-1777129525505-cf51d748-47fb-4ecf-ac7b-281e9b490f0d.jpg [33m404[0m 1.977 ms - 155[0m
+[0mGET /uploads/profiles/cmn16fruj000ajse19k06u8ca/avatar-1777129525480-c55e4248-f3c9-4501-be18-73ee0727904f.jpg [33m404[0m 2.608 ms - 156[0m
+[0mGET /api/v1/users/cmn16fruj000ajse19k06u8ca [32m200[0m 7.742 ms - 908[0m
+[0mGET /api/v1/users/cmn16fruj000ajse19k06u8ca [32m200[0m 6.841 ms - 908[0m
+[0mGET /api/v1/users/cmn16fruj000ajse19k06u8ca [32m200[0m 6.980 ms - 908[0m
+[0mGET /api/v1/users/cmn16fruj000ajse19k06u8ca [32m200[0m 8.322 ms - 908[0m
+[0mGET /api/v1/notifications [32m200[0m 14.763 ms - 10917[0m
+[0mGET /api/v1/stories?authorId=cmn16fruj000ajse19k06u8ca [32m200[0m 23.159 ms - 301487[0m
+[0mGET /api/v1/users/cmn16fruj000ajse19k06u8ca [32m200[0m 9.766 ms - 908[0m
+[0mGET /api/v1/users/cmn16fruj000ajse19k06u8ca [32m200[0m 5.359 ms - 908[0m
+[0mGET /api/v1/users/cmn16fruj000ajse19k06u8ca [32m200[0m 6.620 ms - 908[0m
+[0mGET /api/v1/users/cmn16fruj000ajse19k06u8ca [32m200[0m 7.573 ms - 908[0m
+[0mGET /api/v1/notifications [32m200[0m 57.857 ms - 10917[0m
+[0mGET /api/v1/stories?authorId=cmn16fruj000ajse19k06u8ca [32m200[0m 71.085 ms - 301487[0m
+[0mGET /api/v1/users/cmn16fruj000ajse19k06u8ca [32m200[0m 9.984 ms - 908[0m
+[0mGET /api/v1/users/cmn16fruj000ajse19k06u8ca [32m200[0m 7.122 ms - 908[0m
+[0mGET /api/v1/notifications [32m200[0m 15.594 ms - 10917[0m
+[0mGET /api/v1/stories?authorId=cmn16fruj000ajse19k06u8ca [32m200[0m 55.701 ms - 301487[0m
+[0mGET /api/v1/users/cmn16fruj000ajse19k06u8ca [32m200[0m 16.363 ms - 908[0m
+[0mGET /api/v1/users/cmn16fruj000ajse19k06u8ca [32m200[0m 7.086 ms - 908[0m
+[0mGET /api/v1/notifications [32m200[0m 16.853 ms - 10917[0m
+[0mGET /api/v1/stories?authorId=cmn16fruj000ajse19k06u8ca [32m200[0m 63.885 ms - 301487[0m
+[0mGET /api/v1/users/cmn16fruj000ajse19k06u8ca [32m200[0m 18.365 ms - 908[0m
+[0mGET /api/v1/users/cmn16fruj000ajse19k06u8ca [32m200[0m 6.401 ms - 908[0m
+[0mGET /uploads/profiles/cmn16fruj000ajse19k06u8ca/cover-1777129525505-cf51d748-47fb-4ecf-ac7b-281e9b490f0d.jpg [33m404[0m 1.993 ms - 155[0m
+[0mGET /uploads/profiles/cmn16fruj000ajse19k06u8ca/avatar-1777129525480-c55e4248-f3c9-4501-be18-73ee0727904f.jpg [33m404[0m 2.861 ms - 156[0m
+[0mGET /api/v1/notifications [32m200[0m 20.083 ms - 10917[0m
+[0mGET /api/v1/users/cmn16fruj000ajse19k06u8ca [32m200[0m 8.148 ms - 908[0m
+[0mGET /api/v1/users/cmn16fruj000ajse19k06u8ca [32m200[0m 6.270 ms - 908[0m
+[0mGET /api/v1/users/cmn16fruj000ajse19k06u8ca [32m200[0m 6.627 ms - 908[0m
+[0mGET /api/v1/users/cmn16fruj000ajse19k06u8ca [32m200[0m 7.300 ms - 908[0m
+[0mGET /api/v1/notifications [32m200[0m 13.375 ms - 10917[0m
+[0mGET /api/v1/stories?authorId=cmn16fruj000ajse19k06u8ca [32m200[0m 24.876 ms - 301487[0m
+[0mGET /api/v1/users/cmn16fruj000ajse19k06u8ca [32m200[0m 6.809 ms - 908[0m
+[32m[nodemon] restarting due to changes...[39m
+[32m[nodemon] starting `node src/server.js`[39m
+[server] Midnight backend running on http://localhost:5000/api/v1
+[32m[nodemon] restarting due to changes...[39m
+[32m[nodemon] starting `node src/server.js`[39m
+[server] Midnight backend running on http://localhost:5000/api/v1
+[32m[nodemon] restarting due to changes...[39m
+[32m[nodemon] starting `node src/server.js`[39m
+[server] Midnight backend running on http://localhost:5000/api/v1
+[32m[nodemon] restarting due to changes...[39m
+[32m[nodemon] starting `node src/server.js`[39m
+[server] Midnight backend running on http://localhost:5000/api/v1
+[32m[nodemon] restarting due to changes...[39m
+[32m[nodemon] starting `node src/server.js`[39m
+[server] Midnight backend running on http://localhost:5000/api/v1
+[32m[nodemon] restarting due to changes...[39m
+[32m[nodemon] starting `node src/server.js`[39m
+[server] Midnight backend running on http://localhost:5000/api/v1
+[32m[nodemon] restarting due to changes...[39m
+[32m[nodemon] starting `node src/server.js`[39m
+[server] Midnight backend running on http://localhost:5000/api/v1
+[32m[nodemon] restarting due to changes...[39m
+[32m[nodemon] starting `node src/server.js`[39m
+[server] Midnight backend running on http://localhost:5000/api/v1
+[32m[nodemon] restarting due to changes...[39m
+[32m[nodemon] starting `node src/server.js`[39m
+[server] Midnight backend running on http://localhost:5000/api/v1
+[32m[nodemon] restarting due to changes...[39m
+[32m[nodemon] starting `node src/server.js`[39m
+[server] Midnight backend running on http://localhost:5000/api/v1
+[32m[nodemon] restarting due to changes...[39m
+[32m[nodemon] starting `node src/server.js`[39m
+[server] Midnight backend running on http://localhost:5000/api/v1
+[32m[nodemon] restarting due to changes...[39m
+[32m[nodemon] starting `node src/server.js`[39m
+[server] Midnight backend running on http://localhost:5000/api/v1
+[32m[nodemon] restarting due to changes...[39m
+[32m[nodemon] starting `node src/server.js`[39m
+[server] Midnight backend running on http://localhost:5000/api/v1
+[32m[nodemon] restarting due to changes...[39m
+[32m[nodemon] starting `node src/server.js`[39m
+[server] Midnight backend running on http://localhost:5000/api/v1
+[32m[nodemon] restarting due to changes...[39m
+[32m[nodemon] starting `node src/server.js`[39m
+[server] Midnight backend running on http://localhost:5000/api/v1
+[32m[nodemon] restarting due to changes...[39m
+[32m[nodemon] starting `node src/server.js`[39m
+[server] Midnight backend running on http://localhost:5000/api/v1
+[32m[nodemon] restarting due to changes...[39m
+[32m[nodemon] starting `node src/server.js`[39m
+[server] Midnight backend running on http://localhost:5000/api/v1
+[32m[nodemon] restarting due to changes...[39m
+[32m[nodemon] starting `node src/server.js`[39m
+[server] Midnight backend running on http://localhost:5000/api/v1
+[32m[nodemon] restarting due to changes...[39m
+[32m[nodemon] starting `node src/server.js`[39m
+[server] Midnight backend running on http://localhost:5000/api/v1
+[32m[nodemon] restarting due to changes...[39m
+[32m[nodemon] starting `node src/server.js`[39m
+[server] Midnight backend running on http://localhost:5000/api/v1
+[32m[nodemon] restarting due to changes...[39m
+[32m[nodemon] starting `node src/server.js`[39m
+[server] Midnight backend running on http://localhost:5000/api/v1
+[32m[nodemon] restarting due to changes...[39m
+[32m[nodemon] starting `node src/server.js`[39m
+[server] Midnight backend running on http://localhost:5000/api/v1
+[32m[nodemon] restarting due to changes...[39m
+[32m[nodemon] starting `node src/server.js`[39m
+[server] Midnight backend running on http://localhost:5000/api/v1
+[32m[nodemon] restarting due to changes...[39m
+[32m[nodemon] starting `node src/server.js`[39m
+[server] Midnight backend running on http://localhost:5000/api/v1
+[32m[nodemon] restarting due to changes...[39m
+[32m[nodemon] starting `node src/server.js`[39m
+[server] Midnight backend running on http://localhost:5000/api/v1
+[0mGET /api/v1/users/test/settings [33m401[0m 3.917 ms - 77[0m
+[0mPOST /api/v1/auth/change-password [33m401[0m 20.010 ms - 77[0m
+[0mPOST /api/v1/auth/login [32m200[0m 618.422 ms - 2079[0m
+[0mGET /api/v1/users/cmn16fruj000ajse19k06u8ca [32m200[0m 62.653 ms - 908[0m
+[0mGET /api/v1/users/cmn16fruj000ajse19k06u8ca [32m200[0m 24.660 ms - 908[0m
+[0mGET /api/v1/stories [32m200[0m 205.977 ms - 298273[0m
+[0mGET /api/v1/reader/state [32m200[0m 234.595 ms - 1672[0m
+[0mGET /api/v1/notifications [32m200[0m 33.489 ms - 10917[0m
+[0mGET /api/v1/users/cmn16fruj000ajse19k06u8ca [32m200[0m 33.131 ms - 908[0m
+[0mGET /api/v1/users/cmn16fruj000ajse19k06u8ca [32m200[0m 11.568 ms - 908[0m
+[0mGET /api/v1/users [32m200[0m 32.501 ms - 6397[0m
+[0mGET /api/v1/stories [32m200[0m 51.397 ms - 301487[0m
+[0mGET /api/v1/reports [32m200[0m 50.101 ms - 26[0m
+[0mGET /api/v1/users/deletion-requests [32m200[0m 60.406 ms - 3778[0m
+[0mGET /api/v1/users/cmn16fruj000ajse19k06u8ca [32m200[0m 17.044 ms - 908[0m
+[0mGET /api/v1/users [32m200[0m 22.052 ms - 6397[0m
+[0mGET /api/v1/reports [32m200[0m 27.430 ms - 26[0m
+[0mGET /api/v1/users/deletion-requests [32m200[0m 27.091 ms - 3778[0m
+[0mGET /api/v1/stories [32m200[0m 89.503 ms - 301487[0m
+[0mGET /api/v1/users/cmn16fruj000ajse19k06u8ca [32m200[0m 25.816 ms - 908[0m
+[0mGET /api/v1/users [32m200[0m 20.711 ms - 6397[0m
+[0mGET /api/v1/reports [32m200[0m 18.176 ms - 26[0m
+[0mGET /api/v1/users/deletion-requests [32m200[0m 24.337 ms - 3778[0m
+[0mGET /api/v1/stories [32m200[0m 40.670 ms - 301487[0m
+[0mGET /api/v1/users/cmn16fruj000ajse19k06u8ca [32m200[0m 11.839 ms - 908[0m
+[0mGET /api/v1/users [32m200[0m 18.003 ms - 6397[0m
+[0mGET /api/v1/users/deletion-requests [32m200[0m 21.436 ms - 3778[0m
+[0mGET /api/v1/stories [32m200[0m 29.608 ms - 301487[0m
+[0mGET /api/v1/reports [32m200[0m 187.017 ms - 26[0m
+[0mGET /api/v1/users/cmn16fruj000ajse19k06u8ca [32m200[0m 17.027 ms - 908[0m
+[0mGET /api/v1/users/cmn16fruj000ajse19k06u8ca [32m200[0m 6.354 ms - 908[0m
+[0mGET /api/v1/users/cmn16fruj000ajse19k06u8ca [32m200[0m 9.581 ms - 908[0m
+[0mGET /api/v1/users/cmn16fruj000ajse19k06u8ca [32m200[0m 8.268 ms - 908[0m
+[0mGET /api/v1/notifications [32m200[0m 21.836 ms - 10917[0m
+[0mGET /api/v1/stories?authorId=cmn16fruj000ajse19k06u8ca [32m200[0m 23.538 ms - 301487[0m
+[0mGET /api/v1/notifications [32m200[0m 8.272 ms - 10917[0m
+[0mGET /api/v1/users/cmn16fruj000ajse19k06u8ca [32m200[0m 9.282 ms - 908[0m
+[0mGET /api/v1/users/cmn16fruj000ajse19k06u8ca [32m200[0m 10.803 ms - 908[0m
+[0mGET /api/v1/notifications [32m200[0m 15.077 ms - 10917[0m
+[0mGET /api/v1/stories?authorId=cmn16fruj000ajse19k06u8ca [32m200[0m 16.770 ms - 301487[0m
+[0mGET /api/v1/notifications [32m200[0m 5.190 ms - 10917[0m
+[0mPOST /api/v1/notifications/read-all [32m200[0m 24.180 ms - 10917[0m
+[0mGET /api/v1/users/cmn16fruj000ajse19k06u8ca [32m200[0m 9.860 ms - 908[0m
+[0mGET /api/v1/users/cmn16fruj000ajse19k06u8ca [32m200[0m 11.706 ms - 908[0m
+[0mGET /api/v1/notifications [32m200[0m 12.109 ms - 10917[0m
+[0mGET /api/v1/stories?authorId=cmn16fruj000ajse19k06u8ca [32m200[0m 80.184 ms - 301487[0m
+[0mGET /api/v1/users/cmn16fruj000ajse19k06u8ca [32m200[0m 23.598 ms - 908[0m
+[0mGET /api/v1/users/cmn16fruj000ajse19k06u8ca [32m200[0m 8.079 ms - 908[0m
+[0mGET /uploads/profiles/cmn16fruj000ajse19k06u8ca/cover-1777129525505-cf51d748-47fb-4ecf-ac7b-281e9b490f0d.jpg [33m404[0m 4.137 ms - 155[0m
+[0mGET /uploads/profiles/cmn16fruj000ajse19k06u8ca/avatar-1777129525480-c55e4248-f3c9-4501-be18-73ee0727904f.jpg [33m404[0m 3.470 ms - 156[0m
+[0mGET /api/v1/notifications [32m200[0m 23.358 ms - 10917[0m
+[0mGET /api/v1/users/cmn16fruj000ajse19k06u8ca [32m200[0m 8.387 ms - 908[0m
+[0mGET /api/v1/users/cmn16fruj000ajse19k06u8ca [32m200[0m 9.551 ms - 908[0m
+[0mGET /uploads/profiles/cmn16fruj000ajse19k06u8ca/cover-1777129525505-cf51d748-47fb-4ecf-ac7b-281e9b490f0d.jpg [33m404[0m 0.693 ms - 155[0m
+[0mGET /uploads/profiles/cmn16fruj000ajse19k06u8ca/avatar-1777129525480-c55e4248-f3c9-4501-be18-73ee0727904f.jpg [33m404[0m 1.701 ms - 156[0m
+[0mGET /api/v1/notifications [32m200[0m 17.195 ms - 10917[0m
+[0mGET /api/v1/users/cmn16fruj000ajse19k06u8ca [32m200[0m 9.530 ms - 908[0m
+[0mGET /api/v1/stories [32m200[0m 23.022 ms - 298273[0m
+[0mGET /api/v1/reader/state [32m200[0m 92.804 ms - 1672[0m
+[0mGET /api/v1/users/cmn16fruj000ajse19k06u8ca [32m200[0m 17.802 ms - 908[0m
+[0mGET /api/v1/notifications [32m200[0m 26.588 ms - 10917[0m
+prisma:error 
+Invalid `prisma.user.findUnique()` invocation in
+C:\Users\vikas\Downloads\Wattpadd\1\New folder\backend\src\modules\reader\reader.service.js:100:36
+
+   97   throw new AppError(400, "authorId is required.");
+   98 }
+   99 
+→ 100 const author = await prisma.user.findUnique({
+        where: {
+          id: "cmn16fruj000ajse19k06u8ca"
+        },
+        select: {
+          id: true,
+          blocked: true,
+          profileVisibility: true,
+          ~~~~~~~~~~~~~~~~~
+      ?   email?: true,
+      ?   password?: true,
+      ?   displayName?: true,
+      ?   username?: true,
+      ?   bio?: true,
+      ?   avatarColor?: true,
+      ?   avatarUrl?: true,
+      ?   coverPhotoUrl?: true,
+      ?   website?: true,
+      ?   socialX?: true,
+      ?   socialInstagram?: true,
+      ?   roleId?: true,
+      ?   mode?: true,
+      ?   createdAt?: true,
+      ?   updatedAt?: true,
+      ?   role?: true,
+      ?   stories?: true,
+      ?   reports?: true,
+      ?   followers?: true,
+      ?   following?: true,
+      ?   authorSubscribers?: true,
+      ?   authorSubscriptions?: true,
+      ?   authorProfileQuestionsReceived?: true,
+      ?   authorProfileQuestionsAsked?: true,
+      ?   storyComments?: true,
+      ?   chapterComments?: true,
+      ?   notifications?: true,
+      ?   actedNotifications?: true,
+      ?   storyLikes?: true,
+      ?   chapterLikes?: true,
+      ?   libraryItems?: true,
+      ?   readingProgress?: true,
+      ?   readerCollections?: true,
+      ?   storySubscriptions?: true,
+      ?   deletionRequestsTargeted?: true,
+      ?   deletionRequestsCreated?: true,
+      ?   deletionRequestsReviewed?: true,
+      ?   refreshTokens?: true,
+      ?   _count?: true
+        }
+      })
+
+Unknown field `profileVisibility` for select statement on model `User`. Available options are marked with ?.
+[0mGET /api/v1/reader/collections/public/cmn16fruj000ajse19k06u8ca [31m500[0m 25.393 ms - 51[0m
+prisma:error 
+Invalid `prisma.user.findUnique()` invocation in
+C:\Users\vikas\Downloads\Wattpadd\1\New folder\backend\src\modules\reader\reader.service.js:100:36
+
+   97   throw new AppError(400, "authorId is required.");
+   98 }
+   99 
+→ 100 const author = await prisma.user.findUnique({
+        where: {
+          id: "cmn16fruj000ajse19k06u8ca"
+        },
+        select: {
+          id: true,
+          blocked: true,
+          profileVisibility: true,
+          ~~~~~~~~~~~~~~~~~
+      ?   email?: true,
+      ?   password?: true,
+      ?   displayName?: true,
+      ?   username?: true,
+      ?   bio?: true,
+      ?   avatarColor?: true,
+      ?   avatarUrl?: true,
+      ?   coverPhotoUrl?: true,
+      ?   website?: true,
+      ?   socialX?: true,
+      ?   socialInstagram?: true,
+      ?   roleId?: true,
+      ?   mode?: true,
+      ?   createdAt?: true,
+      ?   updatedAt?: true,
+      ?   role?: true,
+      ?   stories?: true,
+      ?   reports?: true,
+      ?   followers?: true,
+      ?   following?: true,
+      ?   authorSubscribers?: true,
+      ?   authorSubscriptions?: true,
+      ?   authorProfileQuestionsReceived?: true,
+      ?   authorProfileQuestionsAsked?: true,
+      ?   storyComments?: true,
+      ?   chapterComments?: true,
+      ?   notifications?: true,
+      ?   actedNotifications?: true,
+      ?   storyLikes?: true,
+      ?   chapterLikes?: true,
+      ?   libraryItems?: true,
+      ?   readingProgress?: true,
+      ?   readerCollections?: true,
+      ?   storySubscriptions?: true,
+      ?   deletionRequestsTargeted?: true,
+      ?   deletionRequestsCreated?: true,
+      ?   deletionRequestsReviewed?: true,
+      ?   refreshTokens?: true,
+      ?   _count?: true
+        }
+      })
+
+Unknown field `profileVisibility` for select statement on model `User`. Available options are marked with ?.
+[0mGET /api/v1/reader/authors/cmn16fruj000ajse19k06u8ca/questions [31m500[0m 9.281 ms - 51[0m
+[0mGET /uploads/profiles/cmn16fruj000ajse19k06u8ca/cover-1777129525505-cf51d748-47fb-4ecf-ac7b-281e9b490f0d.jpg [33m404[0m 1.325 ms - 155[0m
+[0mGET /uploads/profiles/cmn16fruj000ajse19k06u8ca/avatar-1777129525480-c55e4248-f3c9-4501-be18-73ee0727904f.jpg [33m404[0m 2.304 ms - 156[0m
+[0mGET /api/v1/users/cmn16fruj000ajse19k06u8ca [32m200[0m 11.218 ms - 908[0m
+[0mGET /api/v1/users/cmn16fruj000ajse19k06u8ca [32m200[0m 9.156 ms - 908[0m
+[0mGET /api/v1/users/cmn16fruj000ajse19k06u8ca [32m200[0m 9.835 ms - 908[0m
+[0mGET /api/v1/notifications [32m200[0m 17.729 ms - 10917[0m
+[0mGET /api/v1/stories?authorId=cmn16fruj000ajse19k06u8ca [32m200[0m 22.794 ms - 301487[0m
+[0mGET /api/v1/users/cmn16fruj000ajse19k06u8ca [32m200[0m 17.107 ms - 908[0m
+[0mGET /api/v1/users/cmn16fruj000ajse19k06u8ca [32m200[0m 6.592 ms - 908[0m
+[0mGET /api/v1/users/cmn16fruj000ajse19k06u8ca [32m200[0m 9.209 ms - 908[0m
+[0mGET /api/v1/users/cmn16fruj000ajse19k06u8ca [32m200[0m 10.370 ms - 908[0m
+[0mGET /api/v1/notifications [32m200[0m 11.971 ms - 10917[0m
+[0mGET /api/v1/stories?authorId=cmn16fruj000ajse19k06u8ca [32m200[0m 175.735 ms - 301487[0m
+[0mGET /api/v1/users/cmn16fruj000ajse19k06u8ca [32m200[0m 131.153 ms - 908[0m
+[0mGET /api/v1/users/cmn16fruj000ajse19k06u8ca [32m200[0m 11.270 ms - 908[0m
+[0mGET /api/v1/notifications [32m200[0m 60.023 ms - 10917[0m
+[0mGET /api/v1/stories?authorId=cmn16fruj000ajse19k06u8ca [32m200[0m 161.146 ms - 301487[0m
+[0mGET /api/v1/users/cmn16fruj000ajse19k06u8ca [32m200[0m 204.223 ms - 908[0m
+[0mGET /api/v1/users/cmn16fruj000ajse19k06u8ca [32m200[0m 16.191 ms - 908[0m
+[0mGET /api/v1/users/cmn16fruj000ajse19k06u8ca [32m200[0m 6.548 ms - 908[0m
+[0mGET /api/v1/stories [32m200[0m 191.357 ms - 298273[0m
+[0mGET /api/v1/reader/state [32m200[0m 213.964 ms - 1672[0m
+[0mGET /api/v1/notifications [32m200[0m 23.017 ms - 10917[0m
+[0mGET /api/v1/users/cmn16fruj000ajse19k06u8ca [32m200[0m 28.845 ms - 908[0m
+[0mGET /api/v1/users/cmn16fruj000ajse19k06u8ca [32m200[0m 5.182 ms - 908[0m
+[0mGET /api/v1/users/cmn16fruj000ajse19k06u8ca [32m200[0m 9.877 ms - 908[0m
+[0mGET /api/v1/stories [32m200[0m 34.240 ms - 298273[0m
+[0mGET /api/v1/reader/state [32m200[0m 32.340 ms - 1672[0m
+[0mGET /api/v1/notifications [32m200[0m 21.515 ms - 10917[0m
+[0mGET /api/v1/users/cmn16fruj000ajse19k06u8ca [32m200[0m 12.319 ms - 908[0m
+[0mGET /api/v1/users/cmn16fruj000ajse19k06u8ca [32m200[0m 6.539 ms - 908[0m
+[0mGET /api/v1/users/cmn16fruj000ajse19k06u8ca [32m200[0m 7.606 ms - 908[0m
+[0mGET /api/v1/users/cmn16fruj000ajse19k06u8ca [32m200[0m 9.278 ms - 908[0m
+[0mGET /api/v1/notifications [32m200[0m 13.557 ms - 10917[0m
+[0mGET /api/v1/stories?authorId=cmn16fruj000ajse19k06u8ca [32m200[0m 15.820 ms - 301487[0m
+[0mGET /api/v1/users/cmn16fruj000ajse19k06u8ca [32m200[0m 9.091 ms - 908[0m
+[0mGET /api/v1/users/cmn16fruj000ajse19k06u8ca [32m200[0m 6.324 ms - 908[0m
+[0mGET /api/v1/users/cmn16fruj000ajse19k06u8ca [32m200[0m 7.227 ms - 908[0m
+[0mGET /api/v1/stories [32m200[0m 25.786 ms - 298273[0m
+[0mGET /api/v1/reader/state [32m200[0m 26.718 ms - 1672[0m
+[0mGET /api/v1/notifications [32m200[0m 27.167 ms - 10917[0m
+[0mGET /api/v1/users/cmn16fruj000ajse19k06u8ca [32m200[0m 15.560 ms - 908[0m
+[0mGET /api/v1/reader/state [32m200[0m 17.274 ms - 1672[0m
+[0mGET /api/v1/stories [32m200[0m 31.944 ms - 298273[0m
+[0mGET /api/v1/notifications [32m200[0m 14.696 ms - 10917[0m
+[0mPUT /api/v1/reader/progress/cmnhm1br300bq2ge1yn6g407b [32m200[0m 46.426 ms - 334[0m
+[0mGET /api/v1/reader/state [32m200[0m 17.564 ms - 1672[0m
+[0mGET /api/v1/reader/state [32m200[0m 21.938 ms - 1672[0m
+[0mGET /api/v1/users/cmn16fruj000ajse19k06u8ca [32m200[0m 8.045 ms - 908[0m
+[0mGET /api/v1/users/cmn16fruj000ajse19k06u8ca [32m200[0m 5.511 ms - 908[0m
+[0mGET /api/v1/users/cmn16fruj000ajse19k06u8ca [32m200[0m 8.638 ms - 908[0m
+[0mGET /api/v1/users/cmn16fruj000ajse19k06u8ca [32m200[0m 9.111 ms - 908[0m
+[0mGET /api/v1/notifications [32m200[0m 11.881 ms - 10917[0m
+[0mGET /api/v1/stories?authorId=cmn16fruj000ajse19k06u8ca [32m200[0m 16.216 ms - 301487[0m
+[0mGET /api/v1/users/cmn16fruj000ajse19k06u8ca [32m200[0m 157.554 ms - 908[0m
+[0mGET /api/v1/users/cmn16fruj000ajse19k06u8ca [32m200[0m 14.034 ms - 908[0m
+[0mGET /api/v1/users/cmn16fruj000ajse19k06u8ca [32m200[0m 9.444 ms - 908[0m
+[0mGET /api/v1/stories [32m200[0m 120.532 ms - 298273[0m
+[0mGET /api/v1/reader/state [32m200[0m 137.994 ms - 1672[0m
+[0mGET /api/v1/notifications [32m200[0m 32.184 ms - 10917[0m
+[0mGET /api/v1/users/cmn16fruj000ajse19k06u8ca [32m200[0m 228.171 ms - 908[0m
+[0mGET /api/v1/users/cmn16fruj000ajse19k06u8ca [32m200[0m 15.350 ms - 908[0m
+[0mGET /api/v1/users/cmn16fruj000ajse19k06u8ca [32m200[0m 10.374 ms - 908[0m
+[0mGET /api/v1/stories [32m200[0m 116.904 ms - 298273[0m
+[0mGET /api/v1/reader/state [32m200[0m 143.292 ms - 1672[0m
+[0mGET /api/v1/notifications [32m200[0m 33.194 ms - 10917[0m
+[0mGET /api/v1/users/cmn16fruj000ajse19k06u8ca [32m200[0m 28.015 ms - 908[0m

@@ -1,0 +1,140 @@
+[UNHANDLED_ERROR] PrismaClientValidationError: 
+Invalid `prisma.user.findUnique()` invocation in
+C:\Users\vikas\Downloads\Wattpadd\1\New folder\backend\src\modules\reader\reader.service.js:100:36
+
+   97   throw new AppError(400, "authorId is required.");
+   98 }
+   99 
+→ 100 const author = await prisma.user.findUnique({
+        where: {
+          id: "cmn16fruj000ajse19k06u8ca"
+        },
+        select: {
+          id: true,
+          blocked: true,
+          profileVisibility: true,
+          ~~~~~~~~~~~~~~~~~
+      ?   email?: true,
+      ?   password?: true,
+      ?   displayName?: true,
+      ?   username?: true,
+      ?   bio?: true,
+      ?   avatarColor?: true,
+      ?   avatarUrl?: true,
+      ?   coverPhotoUrl?: true,
+      ?   website?: true,
+      ?   socialX?: true,
+      ?   socialInstagram?: true,
+      ?   roleId?: true,
+      ?   mode?: true,
+      ?   createdAt?: true,
+      ?   updatedAt?: true,
+      ?   role?: true,
+      ?   stories?: true,
+      ?   reports?: true,
+      ?   followers?: true,
+      ?   following?: true,
+      ?   authorSubscribers?: true,
+      ?   authorSubscriptions?: true,
+      ?   authorProfileQuestionsReceived?: true,
+      ?   authorProfileQuestionsAsked?: true,
+      ?   storyComments?: true,
+      ?   chapterComments?: true,
+      ?   notifications?: true,
+      ?   actedNotifications?: true,
+      ?   storyLikes?: true,
+      ?   chapterLikes?: true,
+      ?   libraryItems?: true,
+      ?   readingProgress?: true,
+      ?   readerCollections?: true,
+      ?   storySubscriptions?: true,
+      ?   deletionRequestsTargeted?: true,
+      ?   deletionRequestsCreated?: true,
+      ?   deletionRequestsReviewed?: true,
+      ?   refreshTokens?: true,
+      ?   _count?: true
+        }
+      })
+
+Unknown field `profileVisibility` for select statement on model `User`. Available options are marked with ?.
+    at lr (C:\Users\vikas\Downloads\Wattpadd\1\New folder\backend\node_modules\@prisma\client\runtime\client.js:10:1379)
+    at zr.handleRequestError (C:\Users\vikas\Downloads\Wattpadd\1\New folder\backend\node_modules\@prisma\client\runtime\client.js:65:7929)
+    at zr.handleAndLogRequestError (C:\Users\vikas\Downloads\Wattpadd\1\New folder\backend\node_modules\@prisma\client\runtime\client.js:65:7581)
+    at zr.request (C:\Users\vikas\Downloads\Wattpadd\1\New folder\backend\node_modules\@prisma\client\runtime\client.js:65:7288)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async a (C:\Users\vikas\Downloads\Wattpadd\1\New folder\backend\node_modules\@prisma\client\runtime\client.js:75:5816)
+    at async ensureReadableAuthor (C:\Users\vikas\Downloads\Wattpadd\1\New folder\backend\src\modules\reader\reader.service.js:100:18)
+    at async Object.listPublicCollectionsByUser (C:\Users\vikas\Downloads\Wattpadd\1\New folder\backend\src\modules\reader\reader.service.js:1032:3)
+    at async listPublicCollectionsByUser (C:\Users\vikas\Downloads\Wattpadd\1\New folder\backend\src\modules\reader\reader.controller.js:149:18) {
+  clientVersion: '7.4.2'
+}
+[UNHANDLED_ERROR] PrismaClientValidationError: 
+Invalid `prisma.user.findUnique()` invocation in
+C:\Users\vikas\Downloads\Wattpadd\1\New folder\backend\src\modules\reader\reader.service.js:100:36
+
+   97   throw new AppError(400, "authorId is required.");
+   98 }
+   99 
+→ 100 const author = await prisma.user.findUnique({
+        where: {
+          id: "cmn16fruj000ajse19k06u8ca"
+        },
+        select: {
+          id: true,
+          blocked: true,
+          profileVisibility: true,
+          ~~~~~~~~~~~~~~~~~
+      ?   email?: true,
+      ?   password?: true,
+      ?   displayName?: true,
+      ?   username?: true,
+      ?   bio?: true,
+      ?   avatarColor?: true,
+      ?   avatarUrl?: true,
+      ?   coverPhotoUrl?: true,
+      ?   website?: true,
+      ?   socialX?: true,
+      ?   socialInstagram?: true,
+      ?   roleId?: true,
+      ?   mode?: true,
+      ?   createdAt?: true,
+      ?   updatedAt?: true,
+      ?   role?: true,
+      ?   stories?: true,
+      ?   reports?: true,
+      ?   followers?: true,
+      ?   following?: true,
+      ?   authorSubscribers?: true,
+      ?   authorSubscriptions?: true,
+      ?   authorProfileQuestionsReceived?: true,
+      ?   authorProfileQuestionsAsked?: true,
+      ?   storyComments?: true,
+      ?   chapterComments?: true,
+      ?   notifications?: true,
+      ?   actedNotifications?: true,
+      ?   storyLikes?: true,
+      ?   chapterLikes?: true,
+      ?   libraryItems?: true,
+      ?   readingProgress?: true,
+      ?   readerCollections?: true,
+      ?   storySubscriptions?: true,
+      ?   deletionRequestsTargeted?: true,
+      ?   deletionRequestsCreated?: true,
+      ?   deletionRequestsReviewed?: true,
+      ?   refreshTokens?: true,
+      ?   _count?: true
+        }
+      })
+
+Unknown field `profileVisibility` for select statement on model `User`. Available options are marked with ?.
+    at lr (C:\Users\vikas\Downloads\Wattpadd\1\New folder\backend\node_modules\@prisma\client\runtime\client.js:10:1379)
+    at zr.handleRequestError (C:\Users\vikas\Downloads\Wattpadd\1\New folder\backend\node_modules\@prisma\client\runtime\client.js:65:7929)
+    at zr.handleAndLogRequestError (C:\Users\vikas\Downloads\Wattpadd\1\New folder\backend\node_modules\@prisma\client\runtime\client.js:65:7581)
+    at zr.request (C:\Users\vikas\Downloads\Wattpadd\1\New folder\backend\node_modules\@prisma\client\runtime\client.js:65:7288)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async a (C:\Users\vikas\Downloads\Wattpadd\1\New folder\backend\node_modules\@prisma\client\runtime\client.js:75:5816)
+    at async ensureReadableAuthor (C:\Users\vikas\Downloads\Wattpadd\1\New folder\backend\src\modules\reader\reader.service.js:100:18)
+    at async Object.listAuthorProfileComments (C:\Users\vikas\Downloads\Wattpadd\1\New folder\backend\src\modules\reader\reader.service.js:1582:18)
+    at async listAuthorProfileComments (C:\Users\vikas\Downloads\Wattpadd\1\New folder\backend\src\modules\reader\reader.controller.js:305:18) {
+  clientVersion: '7.4.2'
+}

@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Midnight Writer Profile</title>
+  <link rel="stylesheet" href="writer.css" />
+</head>
+<body class="writer-shell" data-writer-page="profile">
+  <header class="writer-header">
+    <a class="writer-brand" href="home.html">Midnight</a>
+    <nav class="writer-nav">
+      <a href="writer.html" data-writer-nav="dashboard">Dashboard</a>
+      <a href="writer-stories.html" data-writer-nav="stories">Stories</a>
+      <a href="analytics.html" data-writer-nav="analytics">Analytics</a>
+      <a href="writer-profile.html" data-writer-nav="profile">Profile</a>
+    </nav>
+    <div class="writer-actions">
+      <a class="reader-link" href="explore.html">Reader Mode</a>
+      <div class="menu-wrap">
+        <button id="writerMenuBtn" class="icon-btn" type="button" aria-label="Writer menu" aria-expanded="false">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 12c2.761 0 5-2.239 5-5s-2.239-5-5-5-5 2.239-5 5 2.239 5 5 5Z"></path>
+            <path d="M4.5 20.5c1.5-2.5 4.5-4 7.5-4s6 1.5 7.5 4"></path>
+          </svg>
+        </button>
+        <div id="writerMenu" class="profile-menu">
+          <span id="writerUserLine" class="menu-user"></span>
+          <a class="menu-item" href="writer-profile.html">Writer Profile</a>
+          <a class="menu-item" href="notifications.html">Notifications</a>
+          <button id="writerLogoutBtn" class="menu-item" type="button">Log Out</button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main class="writer-main">
+    <section class="section profile-layout">
+      <article class="card profile-preview-card">
+        <div class="section-head">
+          <h2 class="section-title" style="font-size:1.1rem;">Public Profile Preview</h2>
+        </div>
+        <div id="profileCoverPreview" class="profile-cover-preview"></div>
+        <div class="profile-preview-body">
+          <div id="profileAvatarPreview" class="avatar-preview avatar-preview-large"></div>
+          <div class="profile-preview-copy">
+            <h3 id="profileNamePreview" style="margin:0;"></h3>
+            <p id="profileUserPreview" class="section-sub"></p>
+            <p id="profileBioPreview" class="section-sub"></p>
+            <p class="section-sub" style="margin-top:10px;">Followers: <span id="profileFollowersPreview"></span></p>
+            <div id="profileSocialPreview" class="profile-social-preview hidden"></div>
+          </div>
+        </div>
+        <a id="publicProfileLink" class="btn small" href="profile.html" style="display:inline-block; margin-top:8px;">Open Public Profile</a>
+      </article>
+
+      <article class="card">
+        <div class="section-head">
+          <h2 class="section-title" style="font-size:1.1rem;">Edit Writer Profile</h2>
+          <a class="btn" href="settings.html">Account Settings</a>
+        </div>
+        <p class="section-sub" style="margin:0 0 14px 0;">Bio, socials, and profile visuals stay here. Password, privacy, notifications, and deletion requests now live in Settings.</p>
+        <div class="field">
+          <label for="writerDisplayName">Display Name</label>
+          <input id="writerDisplayName" class="input" type="text" />
+        </div>
+        <div class="field">
+          <label for="writerUsername">Username</label>
+          <input id="writerUsername" class="input" type="text" />
+        </div>
+        <div class="field">
+          <label for="writerBio">Bio</label>
+          <textarea id="writerBio" class="textarea"></textarea>
+        </div>
+        <p class="section-sub" style="margin:0 0 6px 0;">Choose your PFP or background image, preview it, then tap Save Profile.</p>
+        <div class="profile-upload-grid">
+          <div class="field">
+            <label for="writerProfilePhoto">Profile Photo (PFP)</label>
+            <input id="writerProfilePhoto" class="input file-input" type="file" accept="image/*" />
+          </div>
+          <div class="field">
+            <label for="writerCoverPhoto">Background Cover</label>
+            <input id="writerCoverPhoto" class="input file-input" type="file" accept="image/*" />
+          </div>
+        </div>
+        <div class="field">
+          <label for="writerAvatarColor">Avatar Color</label>
+          <input id="writerAvatarColor" class="input" type="color" value="#7C7CFF" />
+        </div>
+        <div class="field">
+          <label for="writerSocialInsta">Instagram</label>
+          <input id="writerSocialInsta" class="input" type="text" placeholder="@yourhandle or instagram.com/yourhandle" />
+        </div>
+        <div class="field">
+          <label for="writerSocialYoutube">YouTube</label>
+          <input id="writerSocialYoutube" class="input" type="text" placeholder="@yourchannel or youtube.com/@yourchannel" />
+        </div>
+        <button id="saveWriterProfileBtn" class="btn primary" type="button">Save Profile</button>
+        <p id="writerProfileStatus" class="status-text"></p>
+      </article>
+    </section>
+  </main>
+
+  <script src="app-config.js"></script>
+  <script src="app-api.js"></script>
+  <script src="writer.js"></script>
+</body>
+</html>

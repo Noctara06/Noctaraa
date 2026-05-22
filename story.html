@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Midnight Story</title>
+  <link rel="stylesheet" href="reader.css" />
+</head>
+<body class="reader-shell" data-reader-page="story">
+  <header class="reader-header">
+    <a class="brand-link" href="home.html">Midnight</a>
+
+    <form id="globalSearchForm" class="header-search">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+        <circle cx="11" cy="11" r="7"></circle>
+        <line x1="16.65" y1="16.65" x2="21" y2="21"></line>
+      </svg>
+      <input id="globalSearchInput" type="search" placeholder="Search title or author..." />
+    </form>
+
+    <nav class="header-links">
+      <a href="explore.html" data-nav="explore">Explore</a>
+      <a href="library.html" data-nav="library">Library</a>
+    </nav>
+
+    <div class="header-profile">
+      <button id="headerProfileBtn" class="icon-btn" type="button" aria-label="Profile menu" aria-expanded="false">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M12 12c2.761 0 5-2.239 5-5s-2.239-5-5-5-5 2.239-5 5 2.239 5 5 5Z"></path>
+          <path d="M4.5 20.5c1.5-2.5 4.5-4 7.5-4s6 1.5 7.5 4"></path>
+        </svg>
+      </button>
+      <div id="headerProfileMenu" class="profile-menu">
+        <span id="headerUserLine" class="menu-user"></span>
+        <a id="headerProfileLink" class="menu-item" href="#">Profile</a>
+        <button id="headerLogoutBtn" class="menu-item" type="button">Log Out</button>
+      </div>
+    </div>
+  </header>
+
+  <main class="reader-main">
+    <section class="hero-card">
+      <div class="story-top">
+        <div id="storyCover" class="story-cover-large"></div>
+        <div>
+          <h1 id="storyTitle" class="section-title"></h1>
+          <div class="stats">
+            <a id="storyAuthor" class="author-link" href="#"></a>
+            <span id="storyGenre"></span>
+            <span id="storyLikes"></span>
+            <span id="storyReads"></span>
+            <span id="storyTime"></span>
+          </div>
+
+          <div class="cta-row">
+            <button id="saveStoryBtn" class="btn" type="button">Start Reading</button>
+            <button id="followAuthorBtn" class="btn action-pill-btn" type="button">Follow</button>
+            <button id="notifyStoryBtn" class="btn icon-action-btn" type="button" aria-label="Get Updates" aria-pressed="false" data-tooltip="Get Updates">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M15 17h5l-1.4-1.4A2 2 0 0 1 18 14.2V11a6 6 0 1 0-12 0v3.2a2 2 0 0 1-.6 1.4L4 17h5"></path>
+                <path d="M9.5 17a2.5 2.5 0 0 0 5 0"></path>
+              </svg>
+              <span class="sr-only">Get Updates</span>
+            </button>
+            <div id="storyMoreWrap" class="story-more-wrap">
+              <button id="storyMoreBtn" class="btn plus-btn" type="button" aria-label="More add options" aria-expanded="false">+</button>
+              <div id="storyMoreMenu" class="story-action-menu hidden"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="reading-progress"><span id="progressFill"></span></div>
+      <div id="progressLabel" class="progress-label">0% read</div>
+    </section>
+
+    <section id="storyContent" class="story-content">
+      <div class="section-head">
+        <h2 class="section-title">Chapters</h2>
+        <span id="chapterCount" class="badge"></span>
+      </div>
+      <div id="chapterList" class="chapter-list"></div>
+    </section>
+
+    <section class="comments">
+      <div class="cta-row">
+        <button id="reportStoryBtn" class="btn" type="button" aria-expanded="false">Report Story</button>
+      </div>
+      <div id="storyReportPanel" class="report-panel hidden">
+        <div class="report-field">
+          <label class="report-label" for="storyReportReason">Reason</label>
+          <select id="storyReportReason" class="report-input">
+            <option value="">Select a reason</option>
+            <option value="spam">Spam or misleading</option>
+            <option value="abuse">Harassment or abuse</option>
+            <option value="hate">Hate speech</option>
+            <option value="adult">Adult or explicit content</option>
+            <option value="violence">Violence or self-harm</option>
+            <option value="plagiarism">Plagiarism or stolen content</option>
+            <option value="other">Other</option>
+          </select>
+        </div>
+
+        <div id="storyReportCustomReasonWrap" class="report-field hidden">
+          <label class="report-label" for="storyReportCustomReason">Your Reason</label>
+          <input id="storyReportCustomReason" class="report-input" type="text" placeholder="Write your reason" />
+        </div>
+
+        <div class="report-field">
+          <label class="report-label" for="storyReportDetails">Extra Details</label>
+          <textarea id="storyReportDetails" class="report-textarea" placeholder="Add more details if needed"></textarea>
+        </div>
+
+        <div class="report-actions">
+          <button id="storyReportSubmitBtn" class="btn primary" type="button">Submit Report</button>
+          <button id="storyReportCancelBtn" class="btn" type="button">Cancel</button>
+        </div>
+      </div>
+      <span id="reportStatus" class="section-sub"></span>
+    </section>
+  </main>
+
+  <script src="reader-data.js"></script>
+  <script src="app-config.js"></script>
+  <script src="app-api.js"></script>
+  <script src="reader.js"></script>
+</body>
+</html>
