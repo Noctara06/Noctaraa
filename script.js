@@ -127,7 +127,7 @@
             email,
             password,
             displayName: deriveDisplayName(emailRaw),
-            mode: "reader"
+            mode: "admin"
           });
           setMessage(signupMsg, "Your account has been created successfully. Redirecting to reader mode...", "success");
           await redirectToReaderMode();
