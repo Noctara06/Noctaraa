@@ -33,7 +33,7 @@
   }
 
 window.MIDNIGHT_CONFIG = {
-  apiBase: "https://noctaraa-1.onrender.com/api/v1"
+  apiBase: "https://noctaraa-1.onrender.com"
 };
 
   function readConfiguredApiBase() {
