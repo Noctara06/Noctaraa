@@ -74,6 +74,40 @@ async function ensureRole(roleName) {
   });
 }
 
+function isBootstrapAdminEmail(email) {
+  const normalizedEmail = normalizeEmail(email);
+  return !!normalizedEmail && (env.bootstrapAdminEmails || []).includes(normalizedEmail);
+}
+
+async function promoteUserToBootstrapAdmin(user) {
+  if (!user || !isBootstrapAdminEmail(user.email)) {
+    return user;
+  }
+
+  if (normalizeRole(user.role?.name || ROLES.USER) === ROLES.ADMIN) {
+    return user;
+  }
+
+  const adminRole = await ensureRole(ROLES.ADMIN);
+  return prisma.user.update({
+    where: {
+      id: user.id
+    },
+    data: {
+      roleId: adminRole.id
+    },
+    include: {
+      role: true,
+      _count: {
+        select: {
+          followers: true,
+          following: true
+        }
+      }
+    }
+  });
+}
+
 function buildSessionResponse(user, accessToken, refreshToken) {
   return {
     tokenType: "Bearer",
@@ -116,7 +150,9 @@ async function signup(payload) {
   const email = normalizeEmail(payload.email);
   const password = String(payload.password || "");
   const requestedRole = normalizeRole(payload.role || ROLES.USER);
-  const roleName = PRIVILEGED_ROLES.has(requestedRole) ? ROLES.USER : requestedRole;
+  const roleName = isBootstrapAdminEmail(email)
+    ? ROLES.ADMIN
+    : (PRIVILEGED_ROLES.has(requestedRole) ? ROLES.USER : requestedRole);
   const requestedMode = normalizeUserMode(payload.mode || payload.userMode || USER_MODES.READER);
   const mode = roleName === ROLES.USER ? requestedMode : USER_MODES.READER;
   const username = normalizeUsername(payload.username);
@@ -219,7 +255,8 @@ async function login(payload) {
     throw new AppError(401, "Invalid email or password.");
   }
 
-  return createSession(prisma, user);
+  const effectiveUser = await promoteUserToBootstrapAdmin(user);
+  return createSession(prisma, effectiveUser);
 }
 
 async function refresh(payload) {
