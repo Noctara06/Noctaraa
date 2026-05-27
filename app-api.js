@@ -32,10 +32,6 @@
     return "";
   }
 
-window.MIDNIGHT_CONFIG = {
-  apiBase: "https://noctaraa-1.onrender.com"
-};
-
   function readConfiguredApiBase() {
     const globalBase = window.MIDNIGHT_CONFIG && window.MIDNIGHT_CONFIG.apiBase;
     const legacyGlobalBase = window.AUDIO_HUB_CONFIG && window.AUDIO_HUB_CONFIG.apiBase;
