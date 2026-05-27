@@ -623,27 +623,37 @@ async function deleteUser(id, actor) {
     throw new AppError(403, "Only admin can delete accounts.");
   }
 
-  const pendingRequest = await prisma.userDeletionRequest.findFirst({
+  const userId = String(id || "").trim();
+  if (!userId) {
+    throw new AppError(400, "User id is required.");
+  }
+
+  const targetUser = await prisma.user.findUnique({
     where: {
-      targetUserId: id,
-      status: DELETION_REQUEST_STATUS.PENDING
+      id: userId
     },
-    orderBy: {
-      createdAt: "desc"
+    include: {
+      role: true
     }
   });
 
-  if (!pendingRequest) {
-    throw new AppError(409, "Send a deletion warning before deleting this account.");
+  if (!targetUser) {
+    throw new AppError(404, "User not found.");
   }
 
-  return reviewDeletionRequest(
-    pendingRequest.id,
-    {
-      action: REVIEW_ACTIONS.APPROVE
-    },
-    actor
-  );
+  await prisma.$transaction(async (tx) => {
+    await tx.user.delete({
+      where: {
+        id: userId
+      }
+    });
+  });
+
+  return {
+    id: targetUser.id,
+    email: targetUser.email,
+    deleted: true
+  };
 }
 
 async function listUsers() {

@@ -377,11 +377,11 @@
     sortedUsers.forEach((user) => {
       const role = formatRole(user.role);
       const isSelf = state.currentUser && state.currentUser.id === user.id;
-      const isAdminTarget = role === "admin";
       const pendingRequest = getLatestPendingDeletionRequestForUser(user.id);
+      const isAdminTarget = role === "admin";
       const canEditUser = canManageUsers() && !isSelf && !isAdminTarget;
       const canWarnUser = canManageUsers() && !isSelf && !pendingRequest;
-      const canDeleteUser = canManageUsers() && !isSelf && !!pendingRequest;
+      const canDeleteUser = canManageUsers();
       const canRequestDelete = isManagerView() && !isSelf && role !== "admin" && !pendingRequest;
 
       const row = document.createElement("tr");
@@ -402,9 +402,7 @@
                 ${pendingRequest ? "Warning Sent" : "Send Warning"}
               </button>
               <button class="btn small danger" data-action="delete-user">
-                ${pendingRequest && formatRole(pendingRequest.requestedBy && pendingRequest.requestedBy.role) === "manager"
-                  ? "Approve Delete"
-                  : "Delete User"}
+                Delete User
               </button>
             ` : ""}
             ${isManagerView() ? `
@@ -485,9 +483,7 @@
         deleteBtn.disabled = !canDeleteUser;
         deleteBtn.title = canDeleteUser
           ? ""
-          : (isSelf
-            ? "You cannot delete your own account."
-            : "Send a warning first.");
+          : "Only admin can delete users.";
 
         if (canDeleteUser) {
           deleteBtn.addEventListener("click", async () => {

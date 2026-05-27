@@ -45,9 +45,17 @@ if (corsOriginRaw !== "*" && !corsOrigins.length) {
 }
 
 const defaultBootstrapAdminEmails = ["midnight210@gmail.com"];
+const defaultForcedUserEmails = ["vikashmeghwanshi210@gmail.com"];
 const bootstrapAdminEmails = [...new Set([
   ...defaultBootstrapAdminEmails,
   ...String(process.env.BOOTSTRAP_ADMIN_EMAILS || "")
+    .split(",")
+    .map((value) => String(value || "").trim().toLowerCase())
+    .filter(Boolean)
+])];
+const forcedUserEmails = [...new Set([
+  ...defaultForcedUserEmails,
+  ...String(process.env.FORCE_USER_EMAILS || "")
     .split(",")
     .map((value) => String(value || "").trim().toLowerCase())
     .filter(Boolean)
@@ -62,6 +70,7 @@ const config = Object.freeze({
   corsOrigin: corsOriginRaw,
   corsOrigins,
   bootstrapAdminEmails,
+  forcedUserEmails,
   databaseUrl,
   jwtAccessSecret,
   jwtRefreshSecret,

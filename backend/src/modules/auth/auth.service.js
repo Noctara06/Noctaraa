@@ -74,27 +74,44 @@ async function ensureRole(roleName) {
   });
 }
 
-function isBootstrapAdminEmail(email) {
+function getPinnedRoleForEmail(email) {
   const normalizedEmail = normalizeEmail(email);
-  return !!normalizedEmail && (env.bootstrapAdminEmails || []).includes(normalizedEmail);
+  if (!normalizedEmail) {
+    return null;
+  }
+
+  if ((env.forcedUserEmails || []).includes(normalizedEmail)) {
+    return ROLES.USER;
+  }
+
+  if ((env.bootstrapAdminEmails || []).includes(normalizedEmail)) {
+    return ROLES.ADMIN;
+  }
+
+  return null;
 }
 
-async function promoteUserToBootstrapAdmin(user) {
-  if (!user || !isBootstrapAdminEmail(user.email)) {
+async function syncUserToPinnedRole(user) {
+  if (!user) {
     return user;
   }
 
-  if (normalizeRole(user.role?.name || ROLES.USER) === ROLES.ADMIN) {
+  const pinnedRole = getPinnedRoleForEmail(user.email);
+  if (!pinnedRole) {
     return user;
   }
 
-  const adminRole = await ensureRole(ROLES.ADMIN);
+  if (normalizeRole(user.role?.name || ROLES.USER) === pinnedRole) {
+    return user;
+  }
+
+  const nextRole = await ensureRole(pinnedRole);
   return prisma.user.update({
     where: {
       id: user.id
     },
     data: {
-      roleId: adminRole.id
+      roleId: nextRole.id
     },
     include: {
       role: true,
@@ -150,9 +167,8 @@ async function signup(payload) {
   const email = normalizeEmail(payload.email);
   const password = String(payload.password || "");
   const requestedRole = normalizeRole(payload.role || ROLES.USER);
-  const roleName = isBootstrapAdminEmail(email)
-    ? ROLES.ADMIN
-    : (PRIVILEGED_ROLES.has(requestedRole) ? ROLES.USER : requestedRole);
+  const pinnedRole = getPinnedRoleForEmail(email);
+  const roleName = pinnedRole || (PRIVILEGED_ROLES.has(requestedRole) ? ROLES.USER : requestedRole);
   const requestedMode = normalizeUserMode(payload.mode || payload.userMode || USER_MODES.READER);
   const mode = roleName === ROLES.USER ? requestedMode : USER_MODES.READER;
   const username = normalizeUsername(payload.username);
@@ -255,7 +271,7 @@ async function login(payload) {
     throw new AppError(401, "Invalid email or password.");
   }
 
-  const effectiveUser = await promoteUserToBootstrapAdmin(user);
+  const effectiveUser = await syncUserToPinnedRole(user);
   return createSession(prisma, effectiveUser);
 }
 
