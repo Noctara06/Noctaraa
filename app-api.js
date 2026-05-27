@@ -2,8 +2,8 @@
   const API_BASE_STORAGE_KEY = "midnight_api_base";
   const LEGACY_API_BASE_STORAGE_KEY = "audio_platform_api_base";
   const API_BASE_STORAGE_KEYS = [API_BASE_STORAGE_KEY, LEGACY_API_BASE_STORAGE_KEY];
-const DEFAULT_LOCAL_API_BASE = "https://noctaraa-1.onrender.com/api/v1";
-const API_BASE = resolveApiBase();
+  const DEFAULT_LOCAL_API_BASE = "http://localhost:5000/api/v1";
+  const API_BASE = resolveApiBase();
   const SESSION_KEY = "midnight_session";
   const LEGACY_SESSION_KEY = "audio_platform_session";
   const SESSION_STORAGE_KEYS = [SESSION_KEY, LEGACY_SESSION_KEY];
@@ -32,6 +32,10 @@ const API_BASE = resolveApiBase();
     return "";
   }
 
+window.MIDNIGHT_CONFIG = {
+  apiBase: "https://noctaraa-1.onrender.com/api/v1"
+};
+
   function readConfiguredApiBase() {
     const globalBase = window.MIDNIGHT_CONFIG && window.MIDNIGHT_CONFIG.apiBase;
     const legacyGlobalBase = window.AUDIO_HUB_CONFIG && window.AUDIO_HUB_CONFIG.apiBase;
@@ -56,7 +60,8 @@ const API_BASE = resolveApiBase();
       }
 
       if (window.location.origin && /^https?:/i.test(window.location.origin)) {
-return "https://noctaraa-1.onrender.com/api/v1";      }
+        return `${window.location.origin.replace(/\/+$/, "")}/api/v1`;
+      }
     }
 
     return DEFAULT_LOCAL_API_BASE;
@@ -70,7 +75,7 @@ return "https://noctaraa-1.onrender.com/api/v1";      }
         return window.location.origin.replace(/\/+$/, "");
       }
 
-      return "https://noctaraa-1.onrender.com";
+      return "http://localhost:5000";
     }
   }
 

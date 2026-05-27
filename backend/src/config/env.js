@@ -44,6 +44,11 @@ if (corsOriginRaw !== "*" && !corsOrigins.length) {
   throw new Error("CORS_ORIGIN must be '*' or a comma-separated list of allowed origins.");
 }
 
+const bootstrapAdminEmails = String(process.env.BOOTSTRAP_ADMIN_EMAILS || "")
+  .split(",")
+  .map((value) => String(value || "").trim().toLowerCase())
+  .filter(Boolean);
+
 const config = Object.freeze({
   nodeEnv: process.env.NODE_ENV || "development",
   port,
@@ -52,6 +57,7 @@ const config = Object.freeze({
   profileMediaMaxSizeBytes,
   corsOrigin: corsOriginRaw,
   corsOrigins,
+  bootstrapAdminEmails,
   databaseUrl,
   jwtAccessSecret,
   jwtRefreshSecret,

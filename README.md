@@ -56,6 +56,10 @@ window.MIDNIGHT_CONFIG = {
 };
 ```
 
+Important for Netlify + Render:
+- Put your actual Render API URL in `app-config.js`
+- Example: `https://your-app.onrender.com/api/v1`
+
 ## QA / Recheck
 
 ### Automated smoke test
@@ -94,6 +98,7 @@ Set production env values:
 - `JWT_ACCESS_SECRET`
 - `JWT_REFRESH_SECRET`
 - `CORS_ORIGIN`
+- `BOOTSTRAP_ADMIN_EMAILS`
 
 `CORS_ORIGIN` supports:
 - one origin
@@ -103,7 +108,13 @@ Example:
 
 ```env
 CORS_ORIGIN=https://midnight-app.vercel.app,https://admin.midnight.app
+BOOTSTRAP_ADMIN_EMAILS=you@example.com
 ```
+
+`BOOTSTRAP_ADMIN_EMAILS` is useful on Render deployments:
+- sign up with that email first
+- restart the backend
+- that account will be promoted to `admin` automatically
 
 ### Frontend
 

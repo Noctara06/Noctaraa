@@ -130,6 +130,11 @@ Auth env keys:
 - `JWT_ACCESS_EXPIRES_IN` (default `15m`)
 - `JWT_REFRESH_EXPIRES_IN` (default `7d`)
 - `BCRYPT_SALT_ROUNDS` (default `12`)
+- `BOOTSTRAP_ADMIN_EMAILS` (comma-separated emails to auto-promote as admin on startup)
+
+Deployment note:
+- if your frontend is on Netlify and backend is on Render, set `CORS_ORIGIN` to your Netlify site URL
+- sign up with the email you place in `BOOTSTRAP_ADMIN_EMAILS`, then restart the backend once to grant admin access
 
 ## REST API Structure
 - `GET    /api/v1/health`
