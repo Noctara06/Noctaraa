@@ -32,7 +32,7 @@
     return "";
   }
 
-  function readConfiguredApiBase() {
+/*  */  function readConfiguredApiBase() {
     const globalBase = window.MIDNIGHT_CONFIG && window.MIDNIGHT_CONFIG.apiBase;
     const legacyGlobalBase = window.AUDIO_HUB_CONFIG && window.AUDIO_HUB_CONFIG.apiBase;
     const storedBase = readFirstStorageValue(API_BASE_STORAGE_KEYS);

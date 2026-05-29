@@ -720,7 +720,7 @@ a {
 
 .chapter-item {
   display: grid;
-  grid-template-columns: 42px minmax(0, 1fr);
+  grid-template-columns: minmax(0, 1fr) 42px;
   gap: 10px;
   align-items: center;
 }
@@ -735,13 +735,29 @@ a {
   display: grid;
   place-items: center;
   cursor: pointer;
-  transition: border-color 0.16s ease, background 0.16s ease, transform 0.16s ease;
+  justify-self: end;
+  transition: border-color 0.16s ease, background 0.16s ease, transform 0.16s ease, opacity 0.16s ease;
 }
 
 .chapter-delete:hover {
   border-color: rgba(248, 113, 113, 0.55);
   background: rgba(127, 29, 29, 0.24);
   transform: translateY(-1px);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .chapter-delete {
+    opacity: 0;
+    pointer-events: none;
+    transform: translateX(6px);
+  }
+
+  .chapter-item:hover .chapter-delete,
+  .chapter-item:focus-within .chapter-delete {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateX(0);
+  }
 }
 
 .chapter-open {

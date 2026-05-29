@@ -1476,6 +1476,18 @@
         const row = document.createElement("div");
         row.className = "chapter-item";
 
+        const openButton = document.createElement("button");
+        openButton.type = "button";
+        openButton.className = `chapter-open${index === activeChapterIndex ? " active" : ""}`;
+        openButton.textContent = chapter.title || `Chapter ${index + 1}`;
+        openButton.addEventListener("click", () => {
+          openChapterEditor(index).catch((error) => {
+            setStatus(elements.status, api.getErrorMessage(error, "Chapter editor failed to open."), true);
+          });
+        });
+
+        row.appendChild(openButton);
+
         const deleteButton = document.createElement("button");
         deleteButton.type = "button";
         deleteButton.className = "chapter-delete";
@@ -1498,18 +1510,7 @@
           }
         });
 
-        const openButton = document.createElement("button");
-        openButton.type = "button";
-        openButton.className = `chapter-open${index === activeChapterIndex ? " active" : ""}`;
-        openButton.textContent = chapter.title || `Chapter ${index + 1}`;
-        openButton.addEventListener("click", () => {
-          openChapterEditor(index).catch((error) => {
-            setStatus(elements.status, api.getErrorMessage(error, "Chapter editor failed to open."), true);
-          });
-        });
-
         row.appendChild(deleteButton);
-        row.appendChild(openButton);
         elements.chapterTabs.appendChild(row);
       });
 
