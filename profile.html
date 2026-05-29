@@ -100,7 +100,11 @@
             <h2 id="profileCollectionsActiveTitle" class="section-title">Select a board</h2>
             <p id="profileCollectionsInfo" class="section-sub">Click a board above to view its books.</p>
           </div>
-          <button id="profileCollectionsClearBtn" class="btn hidden" type="button">Back to Boards</button>
+          <div class="collection-actions">
+            <span id="profileCollectionsVisibilityBadge" class="visibility-badge hidden">Public Board</span>
+            <button id="profileCollectionsVisibilityBtn" class="btn hidden" type="button">Make Private</button>
+            <button id="profileCollectionsClearBtn" class="btn hidden" type="button">Back to Boards</button>
+          </div>
         </div>
         <div id="profileCollectionsStories" class="story-grid collection-story-grid"></div>
       </article>

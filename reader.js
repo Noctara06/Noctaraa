@@ -2611,6 +2611,8 @@
       const collectionsFocusSection = document.getElementById("profileCollectionsFocusSection");
       const collectionsActiveTitle = document.getElementById("profileCollectionsActiveTitle");
       const collectionsInfo = document.getElementById("profileCollectionsInfo");
+      const collectionsVisibilityBadge = document.getElementById("profileCollectionsVisibilityBadge");
+      const collectionsVisibilityBtn = document.getElementById("profileCollectionsVisibilityBtn");
       const collectionsStories = document.getElementById("profileCollectionsStories");
       const collectionsClearBtn = document.getElementById("profileCollectionsClearBtn");
       const questionsSection = document.getElementById("profileQuestionsSection");
@@ -2628,7 +2630,7 @@
       const storiesNode = document.getElementById("profileStories");
       const collectionsIntro = document.getElementById("profileCollectionsIntro");
       const collectionsNode = document.getElementById("profileCollections");
-      if (!avatar || !name || !username || !bio || !stats || !followBtn || !storiesNode || !collectionsIntro || !collectionsNode || !storiesTab || !collectionsTab || !questionsTab || !storiesSection || !collectionsSection || !collectionsFocusSection || !collectionsActiveTitle || !collectionsInfo || !collectionsStories || !collectionsClearBtn || !questionsSection || !questionsTitle || !questionsIntro || !questionForm || !questionInput || !questionSubmit || !questionStatus || !questionList || !followersModal || !followersModalTitle || !followersModalCount || !followersModalList || !followersModalClose) {
+      if (!avatar || !name || !username || !bio || !stats || !followBtn || !storiesNode || !collectionsIntro || !collectionsNode || !storiesTab || !collectionsTab || !questionsTab || !storiesSection || !collectionsSection || !collectionsFocusSection || !collectionsActiveTitle || !collectionsInfo || !collectionsVisibilityBadge || !collectionsVisibilityBtn || !collectionsStories || !collectionsClearBtn || !questionsSection || !questionsTitle || !questionsIntro || !questionForm || !questionInput || !questionSubmit || !questionStatus || !questionList || !followersModal || !followersModalTitle || !followersModalCount || !followersModalList || !followersModalClose) {
         return;
       }
 
@@ -2675,6 +2677,33 @@
         return publicCollections.find((item) => item.id === activeProfileCollectionId) || null;
       }
 
+      function renderProfileCollectionVisibilityControls(collection) {
+        if (!collectionsVisibilityBadge || !collectionsVisibilityBtn) {
+          return;
+        }
+
+        if (!collection || collection.isSystem) {
+          collectionsVisibilityBadge.classList.add("hidden");
+          collectionsVisibilityBadge.classList.remove("is-public", "is-private");
+          collectionsVisibilityBadge.textContent = "";
+          collectionsVisibilityBtn.classList.add("hidden");
+          collectionsVisibilityBtn.textContent = "";
+          return;
+        }
+
+        collectionsVisibilityBadge.classList.remove("hidden", "is-public", "is-private");
+        collectionsVisibilityBadge.classList.add(collection.isPublic ? "is-public" : "is-private");
+        collectionsVisibilityBadge.textContent = collectionVisibilityLabel(collection);
+
+        if (ownProfile) {
+          collectionsVisibilityBtn.classList.remove("hidden");
+          collectionsVisibilityBtn.textContent = collection.isPublic ? "Make Private" : "Make Public";
+        } else {
+          collectionsVisibilityBtn.classList.add("hidden");
+          collectionsVisibilityBtn.textContent = "";
+        }
+      }
+
       function renderSelectedProfileCollection() {
         if (!collectionsFocusSection || !collectionsActiveTitle || !collectionsInfo || !collectionsStories || !collectionsClearBtn) {
           return;
@@ -2688,6 +2717,7 @@
           collectionsActiveTitle.textContent = "Select a board";
           collectionsInfo.textContent = "Click a board above to view its books.";
           collectionsStories.innerHTML = '<div class="empty">No collection selected yet.</div>';
+          renderProfileCollectionVisibilityControls(null);
           collectionsClearBtn.classList.add("hidden");
           if (activeProfileCollectionId) {
             activeProfileCollectionId = "";
@@ -2702,7 +2732,8 @@
 
         collectionsFocusSection.classList.remove("hidden");
         collectionsActiveTitle.textContent = activeCollection.name;
-        collectionsInfo.textContent = `${storiesInCollection.length} book${storiesInCollection.length === 1 ? "" : "s"} in this public board. Updated ${toDateLabel(activeCollection.updatedAt)}.`;
+        collectionsInfo.textContent = `${storiesInCollection.length} book${storiesInCollection.length === 1 ? "" : "s"} in this ${activeCollection.isPublic ? "public" : "private"} board. Updated ${toDateLabel(activeCollection.updatedAt)}.`;
+        renderProfileCollectionVisibilityControls(activeCollection);
         collectionsClearBtn.classList.remove("hidden");
         collectionsClearBtn.textContent = "Back to Boards";
 
@@ -3476,6 +3507,31 @@
             behavior: "smooth"
           });
           setActiveProfileTab("collections");
+        });
+      }
+      if (collectionsVisibilityBtn && !collectionsVisibilityBtn.dataset.bound) {
+        collectionsVisibilityBtn.dataset.bound = "true";
+        collectionsVisibilityBtn.addEventListener("click", async () => {
+          const activeCollection = selectedProfileCollection();
+          if (!activeCollection || activeCollection.isSystem || !ownProfile) {
+            return;
+          }
+
+          collectionsVisibilityBtn.disabled = true;
+          try {
+            const nextIsPublic = !activeCollection.isPublic;
+            await api.updateCollection(activeCollection.id, {
+              isPublic: nextIsPublic
+            });
+            publicCollections = await api.listPublicCollectionsByUser(author.id);
+            renderPublicCollections();
+            setActiveProfileTab("collections");
+            showPageStatus(`Board "${activeCollection.name}" is now ${nextIsPublic ? "public" : "private"}.`, "success");
+          } catch (error) {
+            showPageStatus(api.getErrorMessage(error, "Collection visibility could not be updated."), "error");
+          } finally {
+            collectionsVisibilityBtn.disabled = false;
+          }
         });
       }
       renderPublicCollections();
