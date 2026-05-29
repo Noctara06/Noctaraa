@@ -2582,6 +2582,7 @@
       const params = new URLSearchParams(window.location.search);
       const requestedId = String(params.get("authorId") || "").trim();
       const requestedUser = normalize(params.get("author") || "");
+      const requestedCollectionId = String(params.get("collection") || params.get("board") || "").trim();
       let author = requestedId ? authorById(requestedId) : null;
       if (!author && requestedUser) {
         author = state.authors.find((item) => normalize(item.username) === requestedUser) || null;
@@ -2607,6 +2608,11 @@
       const questionsTab = document.getElementById("profileQuestionsTab");
       const storiesSection = document.getElementById("profileStoriesSection");
       const collectionsSection = document.getElementById("profileCollectionsSection");
+      const collectionsFocusSection = document.getElementById("profileCollectionsFocusSection");
+      const collectionsActiveTitle = document.getElementById("profileCollectionsActiveTitle");
+      const collectionsInfo = document.getElementById("profileCollectionsInfo");
+      const collectionsStories = document.getElementById("profileCollectionsStories");
+      const collectionsClearBtn = document.getElementById("profileCollectionsClearBtn");
       const questionsSection = document.getElementById("profileQuestionsSection");
       const questionsTitle = document.getElementById("profileQuestionsTitle");
       const questionsIntro = document.getElementById("profileQuestionsIntro");
@@ -2622,15 +2628,18 @@
       const storiesNode = document.getElementById("profileStories");
       const collectionsIntro = document.getElementById("profileCollectionsIntro");
       const collectionsNode = document.getElementById("profileCollections");
-      if (!avatar || !name || !username || !bio || !stats || !followBtn || !storiesNode || !collectionsIntro || !collectionsNode || !storiesTab || !collectionsTab || !questionsTab || !storiesSection || !collectionsSection || !questionsSection || !questionsTitle || !questionsIntro || !questionForm || !questionInput || !questionSubmit || !questionStatus || !questionList || !followersModal || !followersModalTitle || !followersModalCount || !followersModalList || !followersModalClose) {
+      if (!avatar || !name || !username || !bio || !stats || !followBtn || !storiesNode || !collectionsIntro || !collectionsNode || !storiesTab || !collectionsTab || !questionsTab || !storiesSection || !collectionsSection || !collectionsFocusSection || !collectionsActiveTitle || !collectionsInfo || !collectionsStories || !collectionsClearBtn || !questionsSection || !questionsTitle || !questionsIntro || !questionForm || !questionInput || !questionSubmit || !questionStatus || !questionList || !followersModal || !followersModalTitle || !followersModalCount || !followersModalList || !followersModalClose) {
         return;
       }
 
+      let publicCollections = [];
       let activeProfileTab = "stories";
+      let activeProfileCollectionId = requestedCollectionId;
       const setActiveProfileTab = (tab) => {
         activeProfileTab = tab === "collections" || tab === "questions" ? tab : "stories";
         storiesSection.classList.toggle("hidden", activeProfileTab !== "stories");
         collectionsSection.classList.toggle("hidden", activeProfileTab !== "collections");
+        collectionsFocusSection.classList.toggle("hidden", activeProfileTab !== "collections" || !selectedProfileCollection());
         questionsSection.classList.toggle("hidden", activeProfileTab !== "questions");
         storiesTab.classList.toggle("active", activeProfileTab === "stories");
         collectionsTab.classList.toggle("active", activeProfileTab === "collections");
@@ -2646,6 +2655,120 @@
         collectionsTab.textContent = "Public Collections";
         questionsTab.textContent = isOwnProfile ? "Reader Questions" : `Ask ${safeLabel}`;
       };
+
+      function replaceProfileCollectionQuery(collectionId) {
+        if (!window.history || typeof window.history.replaceState !== "function") {
+          return;
+        }
+
+        const nextUrl = new URL(window.location.href);
+        if (collectionId) {
+          nextUrl.searchParams.set("collection", collectionId);
+        } else {
+          nextUrl.searchParams.delete("collection");
+          nextUrl.searchParams.delete("board");
+        }
+        window.history.replaceState({}, "", nextUrl.toString());
+      }
+
+      function selectedProfileCollection() {
+        return publicCollections.find((item) => item.id === activeProfileCollectionId) || null;
+      }
+
+      function renderSelectedProfileCollection() {
+        if (!collectionsFocusSection || !collectionsActiveTitle || !collectionsInfo || !collectionsStories || !collectionsClearBtn) {
+          return;
+        }
+
+        const activeCollection = selectedProfileCollection();
+        collectionsStories.innerHTML = "";
+
+        if (!activeCollection) {
+          collectionsFocusSection.classList.add("hidden");
+          collectionsActiveTitle.textContent = "Select a board";
+          collectionsInfo.textContent = "Click a board above to view its books.";
+          collectionsStories.innerHTML = '<div class="empty">No collection selected yet.</div>';
+          collectionsClearBtn.classList.add("hidden");
+          if (activeProfileCollectionId) {
+            activeProfileCollectionId = "";
+            replaceProfileCollectionQuery("");
+          }
+          return;
+        }
+
+        const storiesInCollection = (Array.isArray(activeCollection.storyIds) ? activeCollection.storyIds : [])
+          .map((id) => storyById(id))
+          .filter(Boolean);
+
+        collectionsFocusSection.classList.remove("hidden");
+        collectionsActiveTitle.textContent = activeCollection.name;
+        collectionsInfo.textContent = `${storiesInCollection.length} book${storiesInCollection.length === 1 ? "" : "s"} in this public board. Updated ${toDateLabel(activeCollection.updatedAt)}.`;
+        collectionsClearBtn.classList.remove("hidden");
+        collectionsClearBtn.textContent = "Back to Boards";
+
+        if (!storiesInCollection.length) {
+          collectionsStories.innerHTML = '<div class="empty">No public books are available in this board right now.</div>';
+          return;
+        }
+
+        storiesInCollection.forEach((story) => {
+          collectionsStories.appendChild(storyCard(story));
+        });
+      }
+
+      function openProfileCollectionBoard(collectionId, options = {}) {
+        const nextId = String(collectionId || "").trim();
+        const shouldScroll = options.scroll !== false;
+        const behavior = options.behavior || "smooth";
+
+        activeProfileCollectionId = nextId;
+        renderPublicCollections();
+        replaceProfileCollectionQuery(nextId);
+
+        if (!nextId || !shouldScroll || !collectionsFocusSection || collectionsFocusSection.classList.contains("hidden")) {
+          return;
+        }
+
+        window.requestAnimationFrame(() => {
+          collectionsFocusSection.scrollIntoView({
+            behavior,
+            block: "start"
+          });
+        });
+      };
+
+      function profileCollectionPreviewStories(collection, limit = 4) {
+        return (Array.isArray(collection && collection.storyIds) ? collection.storyIds : [])
+          .map((id) => storyById(id))
+          .filter(Boolean)
+          .slice(0, limit);
+      }
+
+      function profileCollectionBadgeText(collection) {
+        if (!collection) {
+          return "";
+        }
+
+        if (collection.isSystem) {
+          return "Automatic";
+        }
+
+        return collection.isPublic ? "Public" : "Private";
+      }
+
+      function profileCollectionSummaryText(collection) {
+        if (!collection) {
+          return "";
+        }
+
+        const storyCount = Array.isArray(collection.storyIds) ? collection.storyIds.length : 0;
+
+        if (collection.isSystem) {
+          return `${storyCount} finished book${storyCount === 1 ? "" : "s"}`;
+        }
+
+        return `${storyCount} book${storyCount === 1 ? "" : "s"} | ${collection.isPublic ? "Shared board" : "Only you can see this"}`;
+      }
 
       const setQuestionStatus = (message, type = "") => {
         const text = String(message || "").trim();
@@ -2683,7 +2806,6 @@
       setActiveProfileTab(activeProfileTab);
 
       let fullUser = null;
-      let publicCollections = [];
       let profileFollowers = [];
       let followersLoaded = false;
       let profileQuestions = [];
@@ -3066,37 +3188,85 @@
 
         if (!publicCollections.length) {
           collectionsNode.innerHTML = `<div class="empty">${ownProfile ? "You have not shared any public collections yet." : "No public collections available yet."}</div>`;
+          renderSelectedProfileCollection();
           return;
         }
 
         publicCollections.forEach((collection) => {
-          const card = document.createElement("article");
-          card.className = "hero-card profile-collection-card";
+          const storyCount = Array.isArray(collection.storyIds) ? collection.storyIds.length : 0;
+          const previewStories = profileCollectionPreviewStories(collection);
+          const card = document.createElement("button");
+          card.type = "button";
+          card.className = `collection-board${activeProfileCollectionId === collection.id ? " active" : ""}`;
+          card.setAttribute("aria-pressed", activeProfileCollectionId === collection.id ? "true" : "false");
+          card.setAttribute("aria-expanded", activeProfileCollectionId === collection.id ? "true" : "false");
+          card.setAttribute("aria-controls", "profileCollectionsFocusSection");
 
-          const storiesInCollection = collection.storyIds.map((id) => storyById(id)).filter(Boolean);
-          const title = document.createElement("div");
-          title.className = "profile-collection-head";
-          title.innerHTML = `
-            <div>
-              <h3 class="section-title">${escapeHTML(collection.name)}</h3>
-              <p class="profile-collection-meta">${storiesInCollection.length} book${storiesInCollection.length === 1 ? "" : "s"} | Updated ${escapeHTML(toDateLabel(collection.updatedAt))}</p>
-            </div>
-            <span class="visibility-badge is-public">Public List</span>
-          `;
-          card.appendChild(title);
+          const media = document.createElement("div");
+          media.className = "collection-board-media";
 
-          const grid = document.createElement("div");
-          grid.className = "story-grid";
+          for (let index = 0; index < 4; index += 1) {
+            const tile = document.createElement("div");
+            tile.className = "collection-board-tile";
+            const previewStory = previewStories[index];
 
-          if (!storiesInCollection.length) {
-            grid.innerHTML = '<div class="empty">No public books are available in this list right now.</div>';
-          } else {
-            storiesInCollection.forEach((story) => grid.appendChild(storyCard(story)));
+            if (previewStory) {
+              tile.style.cssText = coverStyle(previewStory);
+            } else {
+              tile.classList.add("is-empty");
+              tile.style.background = collection.isSystem
+                ? "linear-gradient(160deg, rgba(14,165,233,0.36), rgba(15,23,42,0.94))"
+                : "linear-gradient(160deg, rgba(124,124,255,0.26), rgba(15,23,42,0.94))";
+            }
+
+            media.appendChild(tile);
           }
 
-          card.appendChild(grid);
+          const countPill = document.createElement("span");
+          countPill.className = "collection-board-count";
+          countPill.textContent = String(storyCount);
+          media.appendChild(countPill);
+
+          const footer = document.createElement("div");
+          footer.className = "collection-board-foot";
+
+          const heading = document.createElement("div");
+          heading.className = "collection-board-heading";
+
+          const title = document.createElement("strong");
+          title.className = "collection-board-title";
+          title.textContent = collection.name;
+
+          const badge = document.createElement("span");
+          badge.className = `collection-board-chip${collection.isSystem ? " is-system" : collection.isPublic ? " is-public" : " is-private"}`;
+          badge.textContent = profileCollectionBadgeText(collection) || "Public Board";
+
+          heading.appendChild(title);
+          heading.appendChild(badge);
+
+          const meta = document.createElement("p");
+          meta.className = "collection-board-meta";
+          meta.textContent = profileCollectionSummaryText(collection);
+
+          const dateLine = document.createElement("p");
+          dateLine.className = "collection-board-date";
+          dateLine.textContent = `Updated ${toDateLabel(collection.updatedAt)}`;
+
+          footer.appendChild(heading);
+          footer.appendChild(meta);
+          footer.appendChild(dateLine);
+          card.appendChild(media);
+          card.appendChild(footer);
+          card.addEventListener("click", () => {
+            openProfileCollectionBoard(collection.id);
+          });
           collectionsNode.appendChild(card);
         });
+
+        renderSelectedProfileCollection();
+        if (selectedProfileCollection()) {
+          setActiveProfileTab("collections");
+        }
       };
 
       const openReplyEditor = (entry) => {
@@ -3297,6 +3467,16 @@
         storiesNode.innerHTML = '<div class="empty">No stories published yet.</div>';
       } else {
         stories.forEach((story) => storiesNode.appendChild(storyCard(story)));
+      }
+      if (collectionsClearBtn && !collectionsClearBtn.dataset.bound) {
+        collectionsClearBtn.dataset.bound = "true";
+        collectionsClearBtn.addEventListener("click", () => {
+          openProfileCollectionBoard("", {
+            scroll: false,
+            behavior: "smooth"
+          });
+          setActiveProfileTab("collections");
+        });
       }
       renderPublicCollections();
       renderProfileQuestions();

@@ -962,6 +962,10 @@ a {
   align-items: stretch;
 }
 
+.collection-board-grid > .empty {
+  grid-column: 1 / -1;
+}
+
 .collection-board {
   border: 1px solid rgba(148, 163, 184, 0.18);
   border-radius: 24px;

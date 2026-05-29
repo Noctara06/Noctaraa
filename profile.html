@@ -89,7 +89,21 @@
           <p id="profileCollectionsIntro" class="section-sub">Public reading lists shared on this profile.</p>
         </div>
       </div>
-      <div id="profileCollections" class="profile-collection-list"></div>
+      <div id="profileCollections" class="collection-board-grid profile-collection-list"></div>
+    </section>
+
+    <section id="profileCollectionsFocusSection" class="section collection-focus-section hidden">
+      <article class="hero-card collection-focus-card profile-collection-focus-card">
+        <div class="collection-focus-head">
+          <div>
+            <p class="collection-focus-kicker">Open Collection</p>
+            <h2 id="profileCollectionsActiveTitle" class="section-title">Select a board</h2>
+            <p id="profileCollectionsInfo" class="section-sub">Click a board above to view its books.</p>
+          </div>
+          <button id="profileCollectionsClearBtn" class="btn hidden" type="button">Back to Boards</button>
+        </div>
+        <div id="profileCollectionsStories" class="story-grid collection-story-grid"></div>
+      </article>
     </section>
 
     <section id="profileQuestionsSection" class="section profile-content-section hidden">
