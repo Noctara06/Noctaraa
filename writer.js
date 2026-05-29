@@ -304,6 +304,22 @@
     };
   }
 
+  function chapterDisplayTitle(chapter, index) {
+    const chapterNumber = index + 1;
+    const baseTitle = `Chapter ${chapterNumber}`;
+    const title = String(chapter && chapter.title ? chapter.title : "").trim();
+
+    if (!title || title === baseTitle) {
+      return baseTitle;
+    }
+
+    if (/^Chapter\s+\d+\s*[-:]/i.test(title)) {
+      return title;
+    }
+
+    return `${baseTitle} - ${title}`;
+  }
+
   function normalizeStoryChapters(story) {
     if (story && Array.isArray(story.chapters) && story.chapters.length > 0) {
       return story.chapters.map((chapter, index) => ({
@@ -341,7 +357,7 @@
 
   function mergeChapterHTML(chapters) {
     return (chapters || [])
-      .map((chapter, index) => `<h2>${safe(chapter.title || `Chapter ${index + 1}`)}</h2>${chapter.content || "<p></p>"}`)
+      .map((chapter, index) => `<h2>${safe(chapterDisplayTitle(chapter, index))}</h2>${chapter.content || "<p></p>"}`)
       .join("");
   }
 
@@ -1479,7 +1495,7 @@
         const openButton = document.createElement("button");
         openButton.type = "button";
         openButton.className = `chapter-open${index === activeChapterIndex ? " active" : ""}`;
-        openButton.textContent = chapter.title || `Chapter ${index + 1}`;
+        openButton.textContent = chapterDisplayTitle(chapter, index);
         openButton.addEventListener("click", () => {
           openChapterEditor(index).catch((error) => {
             setStatus(elements.status, api.getErrorMessage(error, "Chapter editor failed to open."), true);
@@ -1491,7 +1507,7 @@
         const deleteButton = document.createElement("button");
         deleteButton.type = "button";
         deleteButton.className = "chapter-delete";
-        deleteButton.setAttribute("aria-label", `Delete ${chapter.title || `Chapter ${index + 1}`}`);
+        deleteButton.setAttribute("aria-label", `Delete ${chapterDisplayTitle(chapter, index)}`);
         deleteButton.innerHTML = `
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
             <path d="M3 6h18"></path>
@@ -1552,7 +1568,7 @@
       if (elements.previewBody) {
         elements.previewBody.innerHTML = chapters.length
           ? chapters
-            .map((chapter, index) => `<section><h4>${safe(chapter.title || `Chapter ${index + 1}`)}</h4>${chapter.content || "<p>No content yet.</p>"}</section>`)
+            .map((chapter, index) => `<section><h4>${safe(chapterDisplayTitle(chapter, index))}</h4>${chapter.content || "<p>No content yet.</p>"}</section>`)
             .join("")
           : "<p>No chapters added yet.</p>";
       }
@@ -1917,7 +1933,7 @@
     }
 
     function chapterLabel() {
-      return currentChapter().title || `Chapter ${activeChapterIndex + 1}`;
+      return chapterDisplayTitle(currentChapter(), activeChapterIndex);
     }
 
     function selectionInsideEditor() {

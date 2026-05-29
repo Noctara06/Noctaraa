@@ -929,6 +929,10 @@ a {
   gap: 16px;
 }
 
+.collection-focus-section {
+  scroll-margin-top: 88px;
+}
+
 .collection-actions {
   display: flex;
   flex-wrap: wrap;
@@ -953,8 +957,9 @@ a {
 
 .collection-board-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 16px;
+  align-items: stretch;
 }
 
 .collection-board {
@@ -969,6 +974,7 @@ a {
   text-align: left;
   cursor: pointer;
   font: inherit;
+  height: 100%;
   transition: transform 0.18s ease, border-color 0.18s ease, box-shadow 0.18s ease;
   box-shadow: 0 16px 36px rgba(0, 0, 0, 0.18);
 }
@@ -982,6 +988,11 @@ a {
 .collection-board.active {
   border-color: rgba(125, 211, 252, 0.56);
   box-shadow: 0 0 0 1px rgba(125, 211, 252, 0.2), 0 24px 44px rgba(0, 0, 0, 0.26);
+}
+
+.collection-board:focus-visible {
+  outline: 2px solid rgba(125, 211, 252, 0.58);
+  outline-offset: 3px;
 }
 
 .collection-board.is-system .collection-board-media {
@@ -1091,6 +1102,11 @@ a {
   padding: 18px;
   display: grid;
   gap: 16px;
+}
+
+.collection-focus-card {
+  border-color: rgba(125, 211, 252, 0.18);
+  box-shadow: 0 18px 42px rgba(0, 0, 0, 0.2);
 }
 
 .collection-focus-head {
@@ -2125,10 +2141,6 @@ a {
 
   .profile-followers-dialog {
     max-height: min(84vh, 720px);
-  }
-
-  .collection-board-grid {
-    grid-template-columns: 1fr;
   }
 
   .mode-screen {

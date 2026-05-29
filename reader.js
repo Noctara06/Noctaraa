@@ -1014,6 +1014,22 @@
     }];
   }
 
+  function chapterDisplayTitle(chapter, index) {
+    const chapterNumber = index + 1;
+    const baseTitle = `Chapter ${chapterNumber}`;
+    const title = String(chapter && chapter.title ? chapter.title : "").trim();
+
+    if (!title || title === baseTitle) {
+      return baseTitle;
+    }
+
+    if (/^Chapter\s+\d+\s*[-:]/i.test(title)) {
+      return title;
+    }
+
+    return `${baseTitle} - ${title}`;
+  }
+
   function openStory(id) {
     pushRecent(id);
     window.location.href = `story.html?id=${encodeURIComponent(id)}`;
@@ -2083,7 +2099,7 @@
           card.innerHTML = `
             <div class="chapter-head">
               <div>
-                <h3 class="chapter-title">${escapeHTML(chapter.title)}</h3>
+                <h3 class="chapter-title">${escapeHTML(chapterDisplayTitle(chapter, index))}</h3>
                 <div class="chapter-meta chapter-meta-stats">
                   ${metricChipMarkup(stackIconMarkup(), `${chapter.sectionCount || 1} section${Number(chapter.sectionCount || 1) > 1 ? "s" : ""}`)}
                   ${metricChipMarkup(heartIconMarkup(), numberLabel(chapter.likes || 0), "", `${numberLabel(chapter.likes || 0)} votes`)}
@@ -2433,7 +2449,7 @@
       story.comments = chapters.reduce((sum, item) => sum + Number(item.comments || 0), 0);
 
       const refreshChapterMeta = () => {
-        if (title) title.textContent = chapter.title;
+        if (title) title.textContent = chapterDisplayTitle(chapter, index);
         if (meta) {
           meta.textContent = `${story.title} | ${author ? author.name : "Unknown"} | ${storyGenre(story).label} | ${numberLabel(chapter.likes || 0)} votes | ${numberLabel(chapter.comments || 0)} comments`;
         }
